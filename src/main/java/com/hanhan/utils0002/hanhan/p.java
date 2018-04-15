@@ -4,17 +4,25 @@ package com.hanhan.utils0002.hanhan;
 //import org.junit.jupiter.api.Test;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
-import java.security.MessageDigest;
+import java.security.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
+
+
+
 //import java.util.regex.Matcher;
 public strictfp class p implements pI{
 //    public static void main(String[]args){
@@ -2481,12 +2489,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         int d2 = n % 16;
         return hexDigits[d1] + hexDigits[d2];
     }
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////
 
     /**
      *图片和base64互转
