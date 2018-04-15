@@ -103,11 +103,11 @@ public strictfp class p implements pI{
 
         return p.timeAndRandom0_999NoHead().replace(" ","-");
     }
-    public static void main(String[]args){
-        p.p("-------------------------------------------------------");
-        p.p(timeAndRandom0_999NoHead_1());
-        p.p("-------------------------------------------------------");
-    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(timeAndRandom0_999NoHead_1());
+//        p.p("-------------------------------------------------------");
+//    }
 
     /**
      * 推荐3给傻逼项目
@@ -120,6 +120,56 @@ public strictfp class p implements pI{
 
         return p.timeAndRandom0_999NoHead_().replace(":","_");
     }
+
+
+    /**
+     * 用于角色权限id的角色id
+     * 推荐3给傻逼项目
+     *下面这种30到32位是上面的变形版
+     * ,主要是用于文件名的时候冒号不行的改进
+     * roleId-18-04-15-12_56_37.487-392
+     * 这种
+     * */
+    public static String  timeRoleId(){
+
+        return "roleId"+"-"+p.timeAndRandom0_999NoHead_().replace(":","_");
+    }
+
+
+    /**
+     * 用于角色权限id的用户id
+     * 推荐3给傻逼项目
+     *下面这种29到31位是上面的变形版
+     * ,主要是用于文件名的时候冒号不行的改进
+     * usrId-18-04-15-12_58_27.402-396
+     * 这种
+     * */
+    public static String  timeUsrId(){
+
+        return "usrId"+"-"+p.timeAndRandom0_999NoHead_().replace(":","_");
+    }
+
+    /**
+     * 用于角色权限id的权限id
+     * 推荐3给傻逼项目
+     *下面这种28到30位是上面的变形版
+     * ,主要是用于文件名的时候冒号不行的改进
+     * qxId-18-04-15-13_00_15.477-365
+     * 这种
+     * */
+    public static String  timeQxId(){
+
+        return "qxId"+"-"+p.timeAndRandom0_999NoHead_().replace(":","_");
+    }
+
+
+//    public static void main(String[]args){
+//
+//        p.p("-------------------------------------------------------");
+//        p.p(timeQxId());
+//        p.p("-------------------------------------------------------");
+//    }
+
     /**
      * 推荐
      *保险的id
