@@ -833,9 +833,10 @@ public strictfp class p implements pI{
      * */
     /**
      *逻辑非
+     * opp是opposit的缩写
      * */
 
-    public static boolean opposite(boolean a){
+    public static boolean opp(boolean a){
         //如果a是true返回false
         if(a){
             return false;
