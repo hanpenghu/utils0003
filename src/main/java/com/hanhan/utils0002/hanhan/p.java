@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.security.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -2912,7 +2914,48 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     *url传参拼接,
+     * 参数放入map就行了
+     *
+     * www.baidu.com?key1=value1&key2=value2;
+     * */
 
+    public static String urlJoinParams(String url,Map<String,String>params){
+
+        url=url+"?";
+        for(String key:params.keySet()){
+           String value=params.get(key);
+           url=url+(key+"="+value)+"&";
+        }
+        if(url.lastIndexOf("&")==url.length()-1){
+           url= url.substring(0,url.lastIndexOf("&"));
+        }
+        try {
+            url= URLEncoder.encode(url, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            String s="-----------------------------------";
+            s=s+"<< when  p.urlJoinParams encode a url, have a Exception like [UnsupportedEncodingException]   >>"+s;
+            throw new RuntimeException(s);
+        }
+        return url;
+    }
+
+
+
+//    public static void main(String[]args) throws UnsupportedEncodingException {
+//        Map<String,String>params=new LinkedHashMap<>();
+//        params.put("hanhan","23");
+//        params.put("梦如","18");
+//        p.p("-------------------------------------------------------");
+//        p.p(urlJoinParams("www.baidu.com",params));
+//        p.p("-------------------------------------------------------");
+//        p.p("-------------------------------------------------------");
+//        p.p(URLDecoder.decode(urlJoinParams("www.baidu.com",params),"UTF-8"));
+//        p.p("-------------------------------------------------------");
+//    }
 
 
 
