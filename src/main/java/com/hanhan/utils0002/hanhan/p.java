@@ -832,6 +832,49 @@ public strictfp class p implements pI{
      ****************************************************************************************
      * */
     /**
+     *逻辑非
+     * */
+
+    public static boolean fei(boolean a){
+        //如果a是true返回false
+        if(a){
+            return false;
+            //如果a是false,返回true
+        }else{
+            return true;
+        }
+    }
+
+    /**
+     *并且
+     * */
+    public static boolean and(boolean a,boolean b){
+        if(a&&b){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+
+    /**
+     *或者
+     * */
+    public static boolean or(boolean a,boolean b){
+        if(a||b){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+
+    /**
      *equals缩写,判断两个字符串如果等于返回true
      * */
        public static boolean dy(String str1 ,String str2){
@@ -2889,45 +2932,6 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /**
-     *逻辑非
-     * */
-
-    public static boolean fei(boolean a){
-        //如果a是true返回false
-        if(a){
-            return false;
-            //如果a是false,返回true
-        }else{
-            return true;
-        }
-    }
-
-    /**
-     *并且
-     * */
-    public static boolean and(boolean a,boolean b){
-        if(a&&b){
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-
-
-
-
-    /**
-     *或者
-     * */
-    public static boolean or(boolean a,boolean b){
-        if(a||b){
-            return true;
-        }else{
-            return false;
-        }
-    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
