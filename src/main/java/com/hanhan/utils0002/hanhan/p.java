@@ -836,9 +836,9 @@ public strictfp class p implements pI{
      * opp是opposit的缩写
      * */
 
-    public static boolean opp(boolean a){
+    public static boolean opp(boolean b){
         //如果a是true返回false
-        if(a){
+        if(b){
             return false;
             //如果a是false,返回true
         }else{
