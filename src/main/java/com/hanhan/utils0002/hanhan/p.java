@@ -835,7 +835,7 @@ public strictfp class p implements pI{
      *逻辑非
      * */
 
-    public static boolean fei(boolean a){
+    public static boolean opposite(boolean a){
         //如果a是true返回false
         if(a){
             return false;
