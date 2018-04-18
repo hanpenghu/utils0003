@@ -2888,6 +2888,21 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
     }
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *逻辑非
+     * */
+
+    public static boolean fei(boolean a){
+        //如果a是true返回false
+        if(a){
+            return false;
+            //如果a是false,返回true
+        }else{
+            return true;
+        }
+    }
+
     /**
      *并且
      * */
