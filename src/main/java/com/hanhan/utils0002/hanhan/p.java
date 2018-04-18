@@ -2885,8 +2885,28 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         return condition?trueIt:falseIt;
 
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     *并且
+     * */
+    public static boolean and(boolean a,boolean b){
+        if(a&&b){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
+    /**
+     *或者
+     * */
+    public static boolean or(boolean a,boolean b){
+        if(a||b){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 
 
