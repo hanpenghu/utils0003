@@ -36,7 +36,77 @@ public strictfp class p implements pI{
 ////                -------------------------------------------------------
 //    }
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    /**
+     *截取字符串
+     * 注意索引start是从0开始,
+     * 截取是
+     * 包括startHave
+     * 不包括endNotHave
+     *
+     * 如果被截取对象是空的,就返回空
+     * */
+    public static String strCut(String originalStr,int startHave,int endNotHave){
+        if(null==originalStr||"".equals(originalStr)){
+            return "";
+        }else{
+            return originalStr.substring(startHave,endNotHave);
+        }
+    }
+
+    /**
+     *截取originalStr中从startHave(包括)到endNotHave(不包括)的字符串
+     * dsfasdfa使用该函数
+     * strCut("dsfasdfa","sf","df")
+     * 后变成
+     * sfas
+     * 可以发现,截取的是从sf开始并包括sf
+     * 从df结束,并不包括df
+     * */
+    public static String strCut(String originalStr,String startHave,String endNotHave){
+        if(null==originalStr||"".equals(originalStr)){
+            return "";
+        }else{
+            return originalStr.substring(originalStr.indexOf(startHave),originalStr.indexOf(endNotHave));
+        }
+    }
+
+
+
+
+    /**
+     *从  索引startHave开始(包括startHave索引处的字符)
+     * 到字符串结束为止
+     * */
+    public static String strCut(String originalStr,int startHave){
+        if(null==originalStr||"".equals(originalStr)){
+            return "";
+        }else{
+            return originalStr.substring(startHave);
+        }
+    }
+
+
+    /**
+     *截取字符串originalStr从startHave(包括)开始
+     * 到最后结束
+     *
+     * */
+    public static String strCut(String originalStr,String startHave){
+        if(null==originalStr||"".equals(originalStr)){
+            return "";
+        }else{
+            return originalStr.substring(originalStr.indexOf(startHave));
+        }
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(strCut("dsfasdfa","sf"));
+//        p.p("-------------------------------------------------------");
+//    }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*【群主】变色龙 2018-04-08 15:52:41
     一般 秒级 + 3位随机数*/
