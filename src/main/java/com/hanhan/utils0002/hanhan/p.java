@@ -230,6 +230,9 @@ public strictfp class p implements pI{
      *
      * 其实官方的不包含要索引的字符串的时候,返回的也是-1
      *
+     *
+     *
+     * strIndxHead("1211221","1")=1证明  索引的是第一次出现的位置,毕竟1有那么多,他只索引了第一个
      * */
 
     public static int strIndxHead(String strOrignal,String strIndx){
@@ -243,10 +246,18 @@ public strictfp class p implements pI{
 
     }
 
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(strIndxHead("1211221","1"));//0 ,证明索引的是第一次出现的位置
+//        p.p("-------------------------------------------------------");
+//    }
+
+
     /**
      * 索引要索引字符串的尾部
      * tail是尾巴的意思
      *得到strIndx索引的最后一位索引
+     * strIndxTail("dsfa_sdfa","sfa")=3
      * */
     public static int strIndxTail(String strOrignal,String strIndx){
         if(null==strOrignal){
@@ -280,6 +291,14 @@ public strictfp class p implements pI{
         }
 
     }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p("1212121212".indexOf("1"));//0,说明,索引的是第一个次出现的位置
+//        p.p("-------------------------------------------------------");
+//    }
+
+
     /**
      *索引整个字符串的下一个字符串
      *
