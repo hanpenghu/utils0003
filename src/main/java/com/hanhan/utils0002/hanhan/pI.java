@@ -35,7 +35,8 @@ public interface pI {
      String excel="excel";
      String zhifgf="~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";//至分隔符
      String zhi="~";//至符号
-     String zuHeFenGeFu="{~}";//组合分隔符,常用于分隔各种字符串组合
+	 String zuHeFgf="<~>";//这种可以用于正则中和  split()函数中
+     String zuHeFenGeFu="{~}";//组合分隔符,常用于分隔各种字符串组合//这种不能用于正则和字符串的split()函数中
      String manyMinus="--------------------------------------------";
      String manyMinusBefore="\n--------------------------------------------";
      String manyMinusAfter="--------------------------------------------\n";

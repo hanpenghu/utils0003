@@ -79,6 +79,8 @@ public strictfp class p implements pI{
 
     /**
      *截取originalStr中从startHave(包括)到endNotHave(不包括)的字符串
+     *
+     * 注意这个方法使用的前提是:  startHave和endNotHave只出现过一次
      * dsfasdfa使用该函数
      * strCut("dsfasdfa","sf","df")
      * 后变成
@@ -103,6 +105,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 注意这个方法使用的前提是:  startHave和endNotHave只出现过一次
      * (]
      *strCutNoHead("sdabkjwp","da","jw")
      * 得到的是
@@ -130,7 +133,7 @@ public strictfp class p implements pI{
 //    }
 
 /**
- *
+ *注意这个方法使用的前提是:  startHave和endNotHave只出现过一次
  * 无头无尾
  *()方式截取
  * strCutNoHeadTail("sdabkj","da","j")
@@ -151,6 +154,7 @@ public strictfp class p implements pI{
     }
 
     /**
+     * 注意这个方法使用的前提是:  startHave和endNotHave只出现过一次
      * 有头有尾
      *[]这种截取方式
      * strCutHaveHeadAndTail("sdabkjwp","da","jw")
@@ -177,6 +181,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 注意这个方法使用的前提是:  startHave只出现过一次
      * 从头带头到底
      * [------最后这种
      *从  索引startHave开始(包括startHave索引处的字符)
@@ -198,7 +203,7 @@ public strictfp class p implements pI{
 //        p.p("-------------------------------------------------------");
 //    }
 
-    /**
+    /**注意这个方法使用的前提是:  startHave只出现过一次
      * [------这种
      * 从头带头到尾
      *截取字符串originalStr从startHave(包括)开始
@@ -597,6 +602,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 分隔符在后面开始
      *按顺序拆分带组合分隔符的字符串
      * 适用于
      *
@@ -621,6 +627,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 分隔符在后面开始
      ** 适用于
      *
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
@@ -636,6 +643,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 分隔符在后面开始
      *自定义组合符号的拆分
      * 用于字符串最后有分隔符的
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的{~}
@@ -653,6 +661,7 @@ public strictfp class p implements pI{
     }
 
     /**
+     * 分隔符在后面开始
      *用于字符串最后没有分隔符的
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
      * 根据  ~  拆完是
@@ -666,10 +675,55 @@ public strictfp class p implements pI{
 //    public static void main(String[]args){
 //            String s="阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的";
 //        p.p("-------------------------------------------------------");
-//        p.p(chaiFenZuHeFenGeFu0(s,"~",1));
+//        p.p(chaiFenZuHeFenGeFu0(s,"{~}",3));
 //        p.p("-------------------------------------------------------");
 //    }
 
+
+    /**
+     *单一字符分隔符,且分隔符在最前面开始
+     * 像下面这种用|做分隔符,且在最左边开始就有
+     * |/upload/images/20170801/20170801172703_858.jpg|/upload/images/20170801/20170801172709_244.jpg
+     * split是拆分的意思
+     * Separator是分隔符  分离器 的  意思
+     *
+     *这种方法适合只有一个字符组成的分隔符,不适合组合分隔符
+     * splitStrSeparator1Left("|1|2","|")得到的结果是:
+     * [1, 2]这种List集合
+     *
+     *
+     * */
+
+
+    public static List<String> splitStrSeparator1Left(String strToBeSplit,String separator){
+        //注意, split()里面的参数是正则表达式,所以不能用  {~}
+        //因为{在正则表达式中有特殊意义
+        return new LinkedList<>(Arrays.asList((strToBeSplit+separator).substring(1).replace(separator,"<~>").split("<~>")));
+    }
+
+
+    /**
+     *分隔符默认使用  "|"  且是    |1|2  这种[)
+     *
+     * */
+    public static List<String> splitStrSeparator1Left(String strToBeSplit){
+        //注意, split()里面的参数是正则表达式,所以不能用  {~}
+        //因为{在正则表达式中有特殊意义
+        return new LinkedList<>(Arrays.asList((strToBeSplit+"|").substring(1).replace("|","<~>").split("<~>")));
+    }
+
+
+    public static void main(String[]args){
+        String str="|1|2";
+        p.p("-------------------------------------------------------");
+        p.p(str);
+        p.p(splitStrSeparator1Left("|1|2"));
+        p.p("-------------------------------------------------------");
+    }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      *生成新类new封装
      * */
