@@ -602,6 +602,7 @@ public strictfp class p implements pI{
 
 
     /**
+     * 使用默认分隔符{~}的  后置分隔符
      * 分隔符在后面开始
      *按顺序拆分带组合分隔符的字符串
      * 适用于
@@ -627,7 +628,7 @@ public strictfp class p implements pI{
 
 
     /**
-     * 分隔符在后面开始
+     * 中间分隔符,默认{~}分隔符
      ** 适用于
      *
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
@@ -643,54 +644,59 @@ public strictfp class p implements pI{
 
 
     /**
+     * 后置分隔符 适用于组合或者单一分隔符
      * 分隔符在后面开始
      *自定义组合符号的拆分
      * 用于字符串最后有分隔符的
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的{~}
      * */
-    public static List<String>chaiFenZuHeFenGeFu(String s,String zuHeFenGeFuHao,int zuHeFuHaoChangDu){
+    public static List<String>chaiFenZuHeFenGeFu(String s,String zuHeFenGeFuHao){
         List<String>list=new LinkedList<>();
         while(s.contains(zuHeFenGeFuHao)){
             //就是按照{~}拆分
             String ss = s.substring(0, s.indexOf(zuHeFenGeFuHao));
             list.add(ss);
-            s=s.substring(s.indexOf(zuHeFenGeFuHao)+zuHeFuHaoChangDu);
+            s=s.substring(s.indexOf(zuHeFenGeFuHao)+zuHeFenGeFuHao.length());
         }
 
         return list;
     }
 
     /**
+     * 中间分隔符,单一或组合
      * 分隔符在后面开始
      *用于字符串最后没有分隔符的
      * 阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的
      * 根据  ~  拆完是
      * [阿拉山口打飞{, }机爱丽丝打飞{, }机埃里克的]
      * */
-    public static List<String>chaiFenZuHeFenGeFu0(String s,String zuHeFenGeFuHao,int zuHeFuHaoChangDu){
-        return chaiFenZuHeFenGeFu(s+zuHeFenGeFuHao,zuHeFenGeFuHao,zuHeFuHaoChangDu);
+    public static List<String>chaiFenZuHeFenGeFu0(String s,String zuHeFenGeFuHao){
+        return chaiFenZuHeFenGeFu(s+zuHeFenGeFuHao,zuHeFenGeFuHao);
 
     }
 
 //    public static void main(String[]args){
 //            String s="阿拉山口打飞{~}机爱丽丝打飞{~}机埃里克的";
 //        p.p("-------------------------------------------------------");
-//        p.p(chaiFenZuHeFenGeFu0(s,"{~}",3));
+//        p.p(chaiFenZuHeFenGeFu0(s,"{~}"));
 //        p.p("-------------------------------------------------------");
 //    }
 
 
     /**
-     *单一字符分隔符,且分隔符在最前面开始
+     * 左分隔符 单一或组合
+     *
      * 像下面这种用|做分隔符,且在最左边开始就有
      * |/upload/images/20170801/20170801172703_858.jpg|/upload/images/20170801/20170801172709_244.jpg
      * split是拆分的意思
      * Separator是分隔符  分离器 的  意思
      *
-     *这种方法适合只有一个字符组成的分隔符,不适合组合分隔符
+     *这种方法适合一个字符组成的分隔符,当然也适合组合分隔符
      * splitStrSeparator1Left("|1|2","|")得到的结果是:
      * [1, 2]这种List集合
      *
+     *
+     * splitStrSeparator1Left("{~}1{~}2","{~}")=[1,2]
      *
      * */
 
@@ -698,11 +704,20 @@ public strictfp class p implements pI{
     public static List<String> splitStrSeparator1Left(String strToBeSplit,String separator){
         //注意, split()里面的参数是正则表达式,所以不能用  {~}
         //因为{在正则表达式中有特殊意义
-        return new LinkedList<>(Arrays.asList((strToBeSplit+separator).substring(1).replace(separator,"<~>").split("<~>")));
+        return new LinkedList<>(Arrays.asList((strToBeSplit+separator).substring(separator.length()).replace(separator,"<~>").split("<~>")));
     }
+
+//    public static void main(String[]args){
+//        String str="{~}1{~}2";
+//        p.p("-------------------------------------------------------");
+//        p.p(str);
+//        p.p(splitStrSeparator1Left("{~}1{~}2","{~}"));
+//        p.p("-------------------------------------------------------");
+//    }
 
 
     /**
+     * 左分隔符 默认 |
      *分隔符默认使用  "|"  且是    |1|2  这种[)
      *
      * */
@@ -713,13 +728,13 @@ public strictfp class p implements pI{
     }
 
 
-    public static void main(String[]args){
-        String str="|1|2";
-        p.p("-------------------------------------------------------");
-        p.p(str);
-        p.p(splitStrSeparator1Left("|1|2"));
-        p.p("-------------------------------------------------------");
-    }
+//    public static void main(String[]args){
+//        String str="|1|2";
+//        p.p("-------------------------------------------------------");
+//        p.p(str);
+//        p.p(splitStrSeparator1Left("|1|2","|"));
+//        p.p("-------------------------------------------------------");
+//    }
 
 
 
