@@ -318,6 +318,52 @@ public strictfp class p implements pI{
 //        p.p("-------------------------------------------------------");
 //    }
 
+
+
+    /**
+     * 前提是:  每个字符串后面带"_数字",就算里面有多个"_"也无所谓,因为我已经取的最后一个
+     * 组合分隔符中的最大值
+     * 组合或单一分隔符的时候
+     * 找出
+     *        <~>abc_1<~>abc_2<~>abc_3
+     * 中  _  后面最大的那个数字
+     *
+     *以后我用作保存文件取名字都这样,在文件名字后面加  _xx,然后组合放入数据库某个字段
+     *
+     * getMaxSufixLeft("<~>abc_1<~>abc_2<~>abc_3","<~>")=3
+     *
+     * left指的是分隔符位于最左边
+     * */
+    public static Integer getMaxSufixLeft(String str2Split,String splitor){
+        try {
+            List<String> strings = p.splitStrSeparator1Left(str2Split, splitor);
+
+            List<Integer>numberStrs=new LinkedList<>();
+            for(String s:strings) {
+                String s101 = s.substring(s.lastIndexOf("_")+1);
+                numberStrs.add(Integer.valueOf(s101));
+            }
+            Collections.sort(numberStrs);
+            return numberStrs.get(numberStrs.size()-1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------结果是:3------------------------------------");
+//        p.p(getMaxSufixLeft("<~>abc_1<~>abc_2<~>abc_3","<~>"));
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /*【群主】变色龙 2018-04-08 15:52:41
