@@ -13,7 +13,7 @@ public class arraylist {
 
 
 
-    private List<Object> list=    null;
+    private List<Object> list= null;
 
     //构造函数
     public arraylist(){
