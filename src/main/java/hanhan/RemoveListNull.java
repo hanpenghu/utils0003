@@ -4,11 +4,11 @@ import java.util.List;
 
 public class RemoveListNull<T> {
     public void remove(List<T> list){
-        for(int i=0;i<list.size();i++){
-            if(null==list.get(i)){
-                list.remove(i);
-            }
+        while (list.contains(null)){
+            list.remove(null);
         }
+
+
     }
 
 //    public static void main(String[]args){
