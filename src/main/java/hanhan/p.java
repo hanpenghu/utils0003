@@ -3265,6 +3265,74 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     /**
      *封装三目运算符号
      * */
+    public static Object sm(boolean condition,Object trueIt,Object falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static String sm(boolean condition,String trueIt,String falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static int sm(boolean condition,int trueIt,int falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static Integer  sm(boolean condition,Integer trueIt,Integer falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static Double  sm(boolean condition,Double trueIt,Double falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static double  sm(boolean condition,double trueIt,double falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static float  sm(boolean condition,float trueIt,float falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static Float  sm(boolean condition,Float trueIt,Float falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static BigDecimal  sm(boolean condition,BigDecimal trueIt,BigDecimal falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static Long  sm(boolean condition,Long trueIt,Long falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static long  sm(boolean condition,long trueIt,long falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static short  sm(boolean condition,short trueIt,short falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    public static Short  sm(boolean condition,Short trueIt,Short falseIt){
+
+        return condition?trueIt:falseIt;
+
+    }
+    /**
+     *封装三目运算符号英文名字
+     * */
     public static Object threeEyeCalculate(boolean condition,Object trueIt,Object falseIt){
 
         return condition?trueIt:falseIt;
