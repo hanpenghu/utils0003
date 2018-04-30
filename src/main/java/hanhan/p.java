@@ -2440,6 +2440,79 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
+    /**
+     *字符串是否是整型
+     * */
+    public static boolean isInt(String str){
+        try {
+            Integer.valueOf(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+         return false;
+        }
+    }
+    public static boolean isFloat(String str){
+        try {
+            Float.valueOf(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+            return false;
+        }
+    }
+    public static boolean isDouble(String str){
+        try {
+            Double.valueOf(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+            return false;
+        }
+    }
+
+    /**
+     *是否是BigDecimal
+     * */
+    public static boolean isBd(String str){
+        try {
+            new BigDecimal(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+            return false;
+        }
+    }
+    /**
+     *是否是long
+     * */
+    public static boolean isL(String str){
+        try {
+            Long.valueOf(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+            return false;
+        }
+    }
+    /**
+     *是否是short
+     * */
+    public static boolean isShort(String str){
+        try {
+            Short.valueOf(str);
+            //不抛异常就是true
+            return true;
+        } catch (Exception e) {
+            //抛出异常就是false
+            return false;
+        }
+    }
 //    public static void main(String[]args){
 //        //_________________true_________________
 //        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(isNumeric("11231212333333333333333333333333333333"))).sad(p.dexhx).gad());
