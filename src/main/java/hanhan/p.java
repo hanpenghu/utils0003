@@ -2513,6 +2513,63 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return false;
         }
     }
+    /**
+     *是否是标准时间
+     * 2017-01-09 12:23:33.333这种
+     * */
+    public static boolean isBzSj(String s){
+        try {
+
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").parse(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    /**
+     *是否是标准时间
+     * 2017-01-09 12:23:33,333这种
+     * */
+    public static boolean isBzSj1(String s){
+        try {
+
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS").parse(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    /**
+     *是否是标准时间
+     * 2017-01-09 12:23:33这种
+     * */
+    public static boolean isBzSj2(String s){
+        try {
+
+            new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    /**
+     *是否是标准时间
+     * 2017-01-09这种
+     * */
+    public static boolean isBzSj3(String s){
+        try {
+
+            new SimpleDateFormat("yyyy-MM-dd").parse(s);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+//    public static void main(String[]args) throws ParseException {
+//        p.p("-------------------------------------------------------");
+//        p.p(isBzSj3("2017-13-12 12:23:44"));
+//        p.p("-------------------------------------------------------");
+//    }
 //    public static void main(String[]args){
 //        //_________________true_________________
 //        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(isNumeric("11231212333333333333333333333333333333"))).sad(p.dexhx).gad());
