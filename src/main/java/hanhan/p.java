@@ -2937,6 +2937,8 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      *  这种玩意对于导包jar的java启动文件有灾难性的后果,因为jar里面的路径从外面一直读是读不进去的
      *通过当前类 得到工程根目录,根路径  就是得到src路径
      * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/
+     *
+     * 这个对于war包放在tomcat下面是 可以得到src下面路径的,但是对于springboot打的jar包不行
      * */
 
     public static String srcPath(){
