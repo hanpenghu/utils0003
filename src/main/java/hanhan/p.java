@@ -1841,17 +1841,17 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
      * 复杂的要依次取出之后String化再放入
      * 这样得到的Map最终在Controller  return的时候就可以直接json化,而且不会出现"null"  "nulL"都会变为""
      *public class Test2StringEntity {
-     private String str;
-     private BigDecimal b;
-     private Double d;
-     private Test t;
-     private List<Test> list;
+             private String str;
+             private BigDecimal b;
+             private Double d;
+             private Test t;
+             private List<Test> list;
 
 
 
      public class Test {
-     String kk="121323";
-     BigDecimal bb;
+             String kk="121323";
+             BigDecimal bb;
      * */
 
     public static Map<String,Object> getAllFields2String(Object o) throws IllegalAccessException {
