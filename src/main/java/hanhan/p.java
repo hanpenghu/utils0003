@@ -2978,7 +2978,24 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //
 //    }
 
-/**
+
+    public static void main(String[]args){
+        p.p("-------------------------------------------------------");
+        p.p(getParentPath("E:/1/00000/"));// 得到   E:\1
+        p.p("-------------------------------------------------------");
+    }
+  //得到父目录
+    //不管当前目录是否后面带/  得到的父目录都不带/
+  public static  String getParentPath(String currentPath){
+        return new File(currentPath).getParent();
+  }
+
+    public  static  String getParentPath(File file){
+        return file.getParent();
+    }
+
+
+    /**
  *response跨域设置
  * */
     public static void kuaYuAndUtf8Response(HttpServletResponse response, String Content_type, String charset){
