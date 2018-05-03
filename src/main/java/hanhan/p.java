@@ -5,6 +5,7 @@ package hanhan;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.lang.reflect.Field;
@@ -3061,6 +3062,30 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //        p.p(getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test-classes\\com\\ipacedev"));
 //        p.p("-------------------------------------------------------");
 //    }
+
+    //得到 tomcat 部署项目的根目录,
+    //比如项目名称是 luxclub
+    //打包成 luxclub.war然后放到Tomcat的webapps下面启动
+    //得到C:\Users\Administrator\Desktop\Tomcat85\webapps\luxclub\  后面带杠的这种目录
+    //注意这个request 必须是控制层传过来的request
+    public static String getWebProjectDir(HttpServletRequest request){
+        return request.getSession().getServletContext().getRealPath("/");
+    }
+
+    //得到webapps这个目录
+    //最终结果不带杠
+//注意这个request 必须是控制层传过来的request
+    ////得到C:\Users\Administrator\Desktop\Tomcat85\webapps这种不带杠
+    public static String getTomcatWebappsDir(HttpServletRequest request){
+        return p.getParent(p.getWebProjectDir(request));
+    }
+    //得到Tomcat根目录,就是得到webapps的上层目录
+    ////注意这个request 必须是控制层传过来的request
+    //注意这个最后不带杠
+    public static String getTomcatDir(HttpServletRequest request){
+        return p.getParent(p.getTomcatWebappsDir(request));
+    }
+
     /**
  *response跨域设置
  * */
