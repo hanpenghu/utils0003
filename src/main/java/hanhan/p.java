@@ -1817,12 +1817,6 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
      * 字段转换为String
      * 全部字段转换为字符串
      * 全部字段转换为String
-     * 注意该方法只适合基本类型的字段,如果有符合类型的字段,无法String化
-     *比如有个复合类型的实体类,会得到以下map
-     * {str=, b=201, d=12121.0, t=com.hanhan.utils0002.Test.Test@2e817b38}
-     * 解决办法,可以先取出符合类型,然后json化,然后再放入该map
-     * 然后会得到
-     * {str=, b=201, d=12121.0, t={}}
      *
      *
      * 注意这里用Map接收是因为map和类都有同样的性质,都是key和value的组合的集合
