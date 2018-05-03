@@ -2,13 +2,22 @@ package com.hanhan.utils0002.Test;
 
 import hanhan.p;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public class Test {
     String kk="121323";
+    BigDecimal bb;
 
 
+    public BigDecimal getBb() {
+        return bb;
+    }
 
+    public Test setBb(BigDecimal bb) {
+        this.bb = bb;
+        return this;
+    }
 
     public String getKk() {
         return kk;
