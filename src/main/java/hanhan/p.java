@@ -1813,6 +1813,50 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
 //        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(sjc2StrDate(121344L,d16))).sad(p.dexhx).gad());
 //    }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * 字段转换为字符串
+     * 字段转换为String
+     * 全部字段转换为字符串
+     * 全部字段转换为String
+     * 注意这里用Map接收是因为map和类都有同样的性质,都是key和value的组合的集合
+     *@ 设计该类的初衷是 为了输出接口到外部的时候,输出的都是String,
+     * 对于字段无值的进行  ""  输出
+     *
+     *
+     * 亲自试验返回结果,证明没有get方法和set方法的时候实体也能够被jackson序列化
+     * fastJson在field是public的时候同样也不需要实体的get和set方法
+     * */
+    public static Map<String,String> getAllFields2String(Object o) throws IllegalAccessException {
+        Class clazz=o.getClass();
+        List<Field>allFieldsOrignal=new LinkedList<>();
+        while (clazz != null) {//用while得到所有超类的字段属性
+            allFieldsOrignal.addAll(Arrays.asList(clazz.getDeclaredFields()));
+            clazz = clazz.getSuperclass(); //得到父类,然后赋给自己
+        }
+        Map<String,String> allFiledKeyValueAllReadyString=new LinkedHashMap<String,String>();
+        for(Field f:allFieldsOrignal){
+            //强奸 private 字段
+            f.setAccessible(true);
+            //得到字段名字
+            String key = f.getName();
+            //预设字段值
+            String value;
+            //得到字段真实值
+            Object valueObj=f.get(o);
+            if(null==valueObj){
+                value="";
+            }else{
+                //只要不是空就转化为String
+                value=String.valueOf(valueObj);
+            }
+            allFiledKeyValueAllReadyString.put(key,value);
+        }
+        return allFiledKeyValueAllReadyString;
+    }
+
+
+
     /**
      *把所有是类中所有是null的字段,如果是String类型,变成""
      * */
