@@ -1900,31 +1900,7 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
         }
         return allFiledKeyValueAllReadyString;
     }
-//下面这个类是解释上面的方法怎么用的
-//    public class Test2StringEntity {
-//        private String str;
-//        private BigDecimal b;
-//        private Double d;
-//        private Test t;
-//
-//
-//        public static void main(String[]args) throws IllegalAccessException {
-//            com.hanhan.utils0002.Test.Test2StringEntity test2StringEntity=new com.hanhan.utils0002.Test.Test2StringEntity();
-//            test2StringEntity.setB(new BigDecimal(201.000));
-//            test2StringEntity.setD(12121D);
-//            Map<String, Object> allFields2String = p.getAllFields2String(test2StringEntity);
-//            //复合类型单独提出来,将来再放入
-//            Test test = new Test();
-//            test.setKk("哈哈哈");
-//            //此时放入复合类型
-//            allFields2String.put("t",p.getAllFields2String(test));
-//            p.p("-------------------------------------------------------");
-//            //{"str":"","b":"201","d":"12121.0","t":{"kk":"哈哈哈"}}
-//            p.p(JSON.toJSONString(allFields2String));
-//            //com.hanhan.utils0002.Test.Test2StringEntity{str='', b=201, d=12121.0, t=com.hanhan.utils0002.Test.Test{kk='哈哈哈'}}
-//            p.p(JSON.parseObject(JSON.toJSONString(allFields2String), com.hanhan.utils0002.Test.Test2StringEntity.class));
-//            p.p("-------------------------------------------------------");
-//        }
+
 
 
 
