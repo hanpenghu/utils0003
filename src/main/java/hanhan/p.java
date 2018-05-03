@@ -1886,12 +1886,13 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
                 //此时是list复合类型
                 List<Map<String,Object>>list=new ArrayList<Map<String,Object>>();
                 for(Object o1:(List)valueObj){
+                    //使用递归
                     list.add(getAllFields2String(o1)) ;
                 }
                 value=list;
             }else{
                 //此时是自己造的对象那种符合类型
-                //此时该字段可能是复合类型, 调用自己
+                //此时该字段可能是复合类型, 调用自己//使用递归
                value= getAllFields2String(valueObj);
             }
 
