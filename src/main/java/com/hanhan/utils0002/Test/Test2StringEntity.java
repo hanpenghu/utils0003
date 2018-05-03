@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSON;
 import hanhan.p;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Test2StringEntity {
@@ -11,18 +13,22 @@ public class Test2StringEntity {
     private BigDecimal b;
     private Double d;
     private Test t;
+    private List<Test> list;
 
 
     public static void main(String[]args) throws IllegalAccessException {
         Test2StringEntity test2StringEntity=new Test2StringEntity();
         test2StringEntity.setB(new BigDecimal(201.000));
         test2StringEntity.setD(12121D);
-        Map<String, Object> allFields2String = p.getAllFields2String(test2StringEntity);
-        //复合类型单独提出来,将来再放入
         Test test = new Test();
-        test.setKk("哈哈哈");
-        //此时放入复合类型
-        allFields2String.put("t",test);
+        test.setKk(null);
+        test2StringEntity.setT(test);
+        List<Test>list=new ArrayList<>();
+        list.add(test);
+        test2StringEntity.setList(list);
+        Map<String, Object> allFields2String = p.getAllFields2String(test2StringEntity);
+        //此时从新放入复合类型
+//        allFields2String.put("t",p.getAllFields2String(test2StringEntity.getT()));
         p.p("-------------------------------------------------------");
         //{"str":"","b":"201","d":"12121.0","t":{"kk":"哈哈哈"}}
         p.p(JSON.toJSONString(allFields2String));
@@ -67,6 +73,15 @@ public class Test2StringEntity {
         return this;
     }
 
+    public List<Test> getList() {
+        return list;
+    }
+
+    public Test2StringEntity setList(List<Test> list) {
+        this.list = list;
+        return this;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("com.hanhan.utils0002.Test.Test2StringEntity{");
@@ -74,6 +89,7 @@ public class Test2StringEntity {
         sb.append(", b=").append(b);
         sb.append(", d=").append(d);
         sb.append(", t=").append(t);
+        sb.append(", list=").append(list);
         sb.append('}');
         return sb.toString();
     }

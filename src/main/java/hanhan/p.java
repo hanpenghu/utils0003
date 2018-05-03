@@ -1847,21 +1847,36 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
             f.setAccessible(true);
             //得到字段名字
             String key = f.getName();
+            String typeName = f.getType().getName();
             //预设字段值
-            String value;
+            Object value;
             //得到字段真实值
             Object valueObj=f.get(o);
-            if(null==valueObj){
-                value="";
+            if(p.canBeJsonTypes.contains(typeName)){
+                if(null==valueObj){
+                    value="";
+                }else{
+                    //只要不是空就转化为String
+                    value=String.valueOf(valueObj);
+                }
+            }else if("java.util.List".equals(typeName)){
+                //此时是list复合类型
+                List<Map<String,Object>>list=new ArrayList<Map<String,Object>>();
+                for(Object o1:(List)valueObj){
+                    list.add(getAllFields2String(o1)) ;
+                }
+                value=list;
             }else{
-                //只要不是空就转化为String
-                value=String.valueOf(valueObj);
+                //此时是自己造的对象那种符合类型
+                //此时该字段可能是复合类型, 调用自己
+               value= getAllFields2String(valueObj);
             }
+
             allFiledKeyValueAllReadyString.put(key,value);
         }
         return allFiledKeyValueAllReadyString;
     }
-
+//下面这个类是解释上面的方法怎么用的
 //    public class Test2StringEntity {
 //        private String str;
 //        private BigDecimal b;
@@ -1878,7 +1893,7 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
 //            Test test = new Test();
 //            test.setKk("哈哈哈");
 //            //此时放入复合类型
-//            allFields2String.put("t",test);
+//            allFields2String.put("t",p.getAllFields2String(test));
 //            p.p("-------------------------------------------------------");
 //            //{"str":"","b":"201","d":"12121.0","t":{"kk":"哈哈哈"}}
 //            p.p(JSON.toJSONString(allFields2String));

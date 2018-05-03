@@ -127,6 +127,15 @@ public interface pI {
             "float","java.lang.Float","java.lang.Long"
             ,"long","java.lang.Short","short"});
 
+     //注意 Boolean类型的json化后是true或者false处理
+	List<String> canBeJsonTypes
+			= Arrays.asList(new String[]{"int","java.lang.Integer",
+			"double","java.lang.Double",
+			"float","java.lang.Float","java.lang.Long"
+			,"long","java.lang.Short","short","java.lang.String","String"
+			,"java.math.BigDecimal","BigDecimal","byte","java.lang.Byte","char"
+			,"boolean","java.lang.Boolean"});
+
      String intType="int";
      String IntegerType="java.lang.Integer";
      String doubleType="double";

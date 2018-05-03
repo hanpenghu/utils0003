@@ -1,7 +1,14 @@
 package com.hanhan.utils0002.Test;
 
+import hanhan.p;
+
+import java.util.List;
+
 public class Test {
     String kk="121323";
+
+
+
 
     public String getKk() {
         return kk;
@@ -18,5 +25,11 @@ public class Test {
         sb.append("kk='").append(kk).append('\'');
         sb.append('}');
         return sb.toString();
+    }
+
+    public static void main(String[]args){
+        p.p("-------------------------------------------------------");
+        p.p(List.class.getTypeName());
+        p.p("-------------------------------------------------------");
     }
 }
