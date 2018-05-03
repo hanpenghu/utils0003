@@ -2979,22 +2979,88 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
 
-    public static void main(String[]args){
-        p.p("-------------------------------------------------------");
-        p.p(getParentPath("E:/1/00000/"));// 得到   E:\1
-        p.p("-------------------------------------------------------");
-    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(getParent("E:/1/00000/"));// 得到   E:\1
+//        p.p("-------------------------------------------------------");
+//    }
   //得到父目录
     //不管当前目录是否后面带/  得到的父目录都不带/
-  public static  String getParentPath(String currentPath){
+    //就是得到 ../这种目录
+  public static  String getParent(String currentPath){
         return new File(currentPath).getParent();
   }
-
-    public  static  String getParentPath(File file){
+    //得到父目录
+    //不管当前目录是否后面带/  得到的父目录都不带/
+    //就是得到 ../这种目录
+    public  static  String getParent(File file){
         return file.getParent();
     }
 
+//得到爷爷目录//就是得到 .../ 上上层目录
+    //不管当前目录带不带杠,  得到的最后上上层目录都最后不带杠
+    public static String getGrandpa(String currPath){
+        return p.getParent(p.getParent(currPath));
+    }
+    public static String getGrandpa(File file){
+        return p.getParent(p.getParent(file));
+    }
 
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        //结果E:\1\原来E\360data
+//        p.p(getGrandpa("E:\\1\\原来E\\360data\\重要数据\\我的文档\\"));
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+    //getUp3Dir("E:\\1\\原来E\\360data\\重要数据\\我的文档\\")
+    //得到  E:\1\原来E
+    //得到爷爷目录的上一层目录,就是得到上3层目录
+    public static String getUp3Dir(String currPath){
+        return p.getParent(p.getGrandpa(currPath));
+    }
+    public static String getUp3Dir(File file){
+        return p.getParent(p.getGrandpa(file));
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        //得到 E:\1\原来E
+//        p.p(getUp3Dir("E:\\1\\原来E\\360data\\重要数据\\我的文档\\"));
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+    //  getUp4Dir("E:\\1\\原来E\\360data\\重要数据\\我的文档\\")
+    //得到的是 E:\1
+    public static String getUp4Dir(String currPath){
+        return p.getParent(p.getUp3Dir(currPath));
+    }
+    public static String getUp4Dir(File file){
+        return p.getParent(p.getUp3Dir(file));
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(getUp4Dir(new File("E:\\1\\原来E\\360data\\重要数据\\我的文档\\")));
+//        p.p("-------------------------------------------------------");
+//    }
+
+    //得到上五层目录
+    //  getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test-classes\\com\\ipacedev")
+    //得到 E:\1\work_space  最后没有杠的目录
+    public static String getUp5Dir(String currPath){
+        return p.getParent(p.getUp4Dir(currPath));
+    }
+    public static String getUp5Dir(File file){
+        return p.getParent(p.getUp4Dir(file));
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test-classes\\com\\ipacedev"));
+//        p.p("-------------------------------------------------------");
+//    }
     /**
  *response跨域设置
  * */
