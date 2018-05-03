@@ -1811,6 +1811,7 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
+     * 该方法解决了返回给前端是 "null"的情况,直接全部字段String化后把类变为Map再在controller return
      *
      * 字段转换为字符串
      * 字段转换为String
@@ -1854,6 +1855,14 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
              BigDecimal bb;
      * */
 
+ /* 该方法判断类内部的基本类型用的是下面所有这些
+ List<String> canBeJsonTypes
+            = Arrays.asList(new String[]{"int","java.lang.Integer",
+            "double","java.lang.Double",
+            "float","java.lang.Float","java.lang.Long"
+            ,"long","java.lang.Short","short","java.lang.String","String"
+            ,"java.math.BigDecimal","BigDecimal","byte","java.lang.Byte","char"
+            ,"boolean","java.lang.Boolean"});*/
     public static Map<String,Object> getAllFields2String(Object o) throws IllegalAccessException {
         Class clazz=o.getClass();
         List<Field>allFieldsOrignal=new LinkedList<>();
