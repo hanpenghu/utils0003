@@ -1,10 +1,6 @@
 package hanhan;
-//import com.alibaba.fastjson.JSONArray;
-//import com.alibaba.fastjson.JSONObject;
-//import org.junit.jupiter.api.Test;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -1815,10 +1811,19 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
+     *
      * 字段转换为字符串
      * 字段转换为String
      * 全部字段转换为字符串
      * 全部字段转换为String
+     * 注意该方法只适合基本类型的字段,如果有符合类型的字段,无法String化
+     *比如有个复合类型的实体类,会得到以下map
+     * {str=, b=201, d=12121.0, t=com.hanhan.utils0002.Test.Test@2e817b38}
+     * 解决办法,可以先取出符合类型,然后json化,然后再放入该map
+     * 然后会得到
+     * {str=, b=201, d=12121.0, t={}}
+     *
+     *
      * 注意这里用Map接收是因为map和类都有同样的性质,都是key和value的组合的集合
      *@ 设计该类的初衷是 为了输出接口到外部的时候,输出的都是String,
      * 对于字段无值的进行  ""  输出
@@ -1826,15 +1831,17 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
      *
      * 亲自试验返回结果,证明没有get方法和set方法的时候实体也能够被jackson序列化
      * fastJson在field是public的时候同样也不需要实体的get和set方法
+     *
+     * 返回类型中value是Object,是为了将来有符合类型的时候不会出错
      * */
-    public static Map<String,String> getAllFields2String(Object o) throws IllegalAccessException {
+    public static Map<String,Object> getAllFields2String(Object o) throws IllegalAccessException {
         Class clazz=o.getClass();
         List<Field>allFieldsOrignal=new LinkedList<>();
         while (clazz != null) {//用while得到所有超类的字段属性
             allFieldsOrignal.addAll(Arrays.asList(clazz.getDeclaredFields()));
             clazz = clazz.getSuperclass(); //得到父类,然后赋给自己
         }
-        Map<String,String> allFiledKeyValueAllReadyString=new LinkedHashMap<String,String>();
+        Map<String,Object> allFiledKeyValueAllReadyString=new LinkedHashMap<String,Object>();
         for(Field f:allFieldsOrignal){
             //强奸 private 字段
             f.setAccessible(true);
@@ -1855,9 +1862,34 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
         return allFiledKeyValueAllReadyString;
     }
 
+//    public class Test2StringEntity {
+//        private String str;
+//        private BigDecimal b;
+//        private Double d;
+//        private Test t;
+//
+//
+//        public static void main(String[]args) throws IllegalAccessException {
+//            com.hanhan.utils0002.Test.Test2StringEntity test2StringEntity=new com.hanhan.utils0002.Test.Test2StringEntity();
+//            test2StringEntity.setB(new BigDecimal(201.000));
+//            test2StringEntity.setD(12121D);
+//            Map<String, Object> allFields2String = p.getAllFields2String(test2StringEntity);
+//            //复合类型单独提出来,将来再放入
+//            Test test = new Test();
+//            test.setKk("哈哈哈");
+//            //此时放入复合类型
+//            allFields2String.put("t",test);
+//            p.p("-------------------------------------------------------");
+//            //{"str":"","b":"201","d":"12121.0","t":{"kk":"哈哈哈"}}
+//            p.p(JSON.toJSONString(allFields2String));
+//            //com.hanhan.utils0002.Test.Test2StringEntity{str='', b=201, d=12121.0, t=com.hanhan.utils0002.Test.Test{kk='哈哈哈'}}
+//            p.p(JSON.parseObject(JSON.toJSONString(allFields2String), com.hanhan.utils0002.Test.Test2StringEntity.class));
+//            p.p("-------------------------------------------------------");
+//        }
 
 
-    /**
+
+        /**
      *把所有是类中所有是null的字段,如果是String类型,变成""
      * */
     public static Object StringTypeNull2Space(Object o) throws IllegalAccessException {
