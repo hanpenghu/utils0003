@@ -2954,6 +2954,8 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 
 
+
+
     /**
      /E:/1/work_space/CloudPlatformMobile002/target/classes/
      这种最前面带/的路径,  跟不带一样  但是这种路径对于打包的springboot来讲,是灾难的
@@ -2967,7 +2969,14 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+    //获取父路径
+//    public static void main(String[]args){
+//        File file = new File("E:/1/00000/");
+//        p.p(file.getAbsolutePath());//  E:\1\00000
+//        p.p(file.getParent());//  E:\1
+//        File parentFile = file.getParentFile();
+//
+//    }
 
 /**
  *response跨域设置
