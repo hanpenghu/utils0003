@@ -1882,6 +1882,13 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
                     //只要不是空就转化为String
                     value=String.valueOf(valueObj);
                 }
+            }else if("java.util.Date".equals(typeName)){
+                try {
+                    value=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(valueObj);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    value="";
+                }
             }else if("java.util.List".equals(typeName)){
                 //此时是list复合类型
                 List<Map<String,Object>>list=new ArrayList<Map<String,Object>>();

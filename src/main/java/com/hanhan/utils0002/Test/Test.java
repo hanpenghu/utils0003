@@ -3,6 +3,7 @@ package com.hanhan.utils0002.Test;
 import hanhan.p;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 public class Test {
@@ -38,7 +39,7 @@ public class Test {
 
     public static void main(String[]args){
         p.p("-------------------------------------------------------");
-        p.p(List.class.getTypeName());
+        p.p(Date.class.getTypeName());
         p.p("-------------------------------------------------------");
     }
 }
