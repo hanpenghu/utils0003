@@ -156,7 +156,23 @@ public interface pI {
      String baoCunChengGongCh="保存成功";
      String charsetUtf8="application/json;charset=utf-8";
 
+	/**
+	 *常用的请求头
+	 * produces={"application/json;charset=utf-8"}
+     * 这种是用于告诉调用我接口的人我返回的是什么格式
+	 * */
+	String producesJson="application/json;charset=utf-8";
+	String producesXml="application/xml;charset=utf-8";
+	String producesHtml="text/html;charset=utf-8";
+    //text/plain：窗体数据以纯文本形式进行编码，其中不含任何控件或格式字符
+    String producesPlain="text/plain;charset=utf-8";
+	//application/x-www-form-urlencoded为标准编码格式
+    //窗体数据被编码为名称/值对。这是标准的编码格式
+	String producesWww="application/x-www-form-urlencoded;charset=utf-8";
 
+	//这种是规定调用我接口的人  发送过来的是什么格式
+    //multipart/form-data一般用来传输文件
+    String consumesMultipart="multipart/form-data";
 
 
 
