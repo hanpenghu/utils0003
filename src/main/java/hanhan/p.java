@@ -2715,6 +2715,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
 
+
     public static void conClose(Connection c) throws SQLException {
         if (p.notEmpty(c)) {
             c.close();
