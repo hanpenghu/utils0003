@@ -2682,7 +2682,28 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(isNumeric(null))).sad(p.dexhx).gad());
 //    }
 
+    public static boolean isPic(String jueDuiLuJing){
+        try {
+            String s=jueDuiLuJing.substring(jueDuiLuJing.lastIndexOf("."));
+            if(p.imgSufixs.contains(s)){
+                return true;
+            }else{
+                return false;
+            }
+        } catch (Exception e) {
+            return false;
+        }
+    }
 
+    public static boolean isPic(File file){
+        return isPic(file.getAbsolutePath());
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(isPic(new File("E:\\1\\000\\常用东西放入\\2\\98K警告.jpg")));
+//        p.p("-------------------------------------------------------");
+//    }
 
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
