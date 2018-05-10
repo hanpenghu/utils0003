@@ -869,6 +869,10 @@ public strictfp class p implements pI{
         return UUID.randomUUID().toString();
     }
 
+    public static String uuidNo_(){
+        return UUID.randomUUID().toString().replace("-","");
+    }
+
     /*public static void main(String[]args){
          p.p(p.gp().sad(p.dexhx).sad(p.uuid()).sad(p.dexhx).gad());
     }*/
