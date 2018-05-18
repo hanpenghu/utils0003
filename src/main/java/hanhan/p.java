@@ -919,6 +919,19 @@ public strictfp class p implements pI{
         return ("".equals(s)?null:s);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+public static List<?extends Object>removeNull(List<?extends Object> list) {
+    if(notEmpty(list)){
+        //这种方式是可以变长删除元素的
+        for(int i=0;i<list.size();i++){
+            if(null==list.get(i)){
+                list.remove(null);
+            }
+        }
+    }
+    return list;
+}
+
+
     /**
      *给list集合依次remove掉一个元素(必须是存的String)
      * s是空字符串和null也可以,但是list是null和size=0就不行
@@ -3073,6 +3086,31 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *springBoot  jarPath
+     * 得到springboot  jar所在路径,最后带杠的
+     *
+     * //注意这种路径只是得到springboot  的jar所在的路径
+     * */
+    public static String  springBootJarPath(){
+        //创建一个文件//注意这个文件直接会生成在springboot  jar所在的文件夹中
+        File file = new File("1");
+        try {
+            file.createNewFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String absolutePath = file.getAbsolutePath();
+
+        String jarPath=absolutePath.substring(0,absolutePath.length()-1);
+        if(file .exists()) {
+            file.delete();
+        }
+        return jarPath;
+
+    }
+
 
 
     /**
