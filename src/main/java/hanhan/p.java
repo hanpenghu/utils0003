@@ -919,17 +919,20 @@ public strictfp class p implements pI{
         return ("".equals(s)?null:s);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public static List<?extends Object>removeNull(List<?extends Object> list) {
+public static void removeNull(List<?extends Object> list) {
     if(notEmpty(list)){
-        //这种方式是可以变长删除元素的
-        for(int i=0;i<list.size();i++){
-            if(null==list.get(i)){
-                list.remove(null);
+        while(list.contains(null)){
+            //这种方式是可以变长删除元素的
+            for(int i=0;i<list.size();i++){
+                if(null==list.get(i)){
+                    list.remove(null);
+                }
             }
         }
     }
-    return list;
+
 }
+
 
 
     /**
