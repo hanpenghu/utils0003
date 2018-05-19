@@ -99,7 +99,17 @@ public strictfp class p implements pI{
 //        p.p(strCutNoHead("12123123123dsafasdfa",""));//12123123123dsafasdfa
 //        p.p("-------------------------------------------------------");
 //    }
+public static String strCutEndNothave(String orignalStr,String endNotHave){
+    return  orignalStr.substring(0,orignalStr.indexOf(endNotHave));
+}
 
+
+
+
+    public static String strCutEndhave(String orignalStr,String endHave){
+        int len=endHave.length();
+        return  orignalStr.substring(0,orignalStr.indexOf(endHave)+len);
+    }
     /**
      *截取originalStr中从startHave(包括)到endNotHave(不包括)的字符串
      *
@@ -156,13 +166,7 @@ public strictfp class p implements pI{
 //        p.p("-------------------------------------------------------");
 //    }
 
-    public static String strCutEndNothave(String orignalStr,String endNotHave){
-       return  orignalStr.substring(0,orignalStr.indexOf(endNotHave));
-    }
-    public static String strCutEndhave(String orignalStr,String endHave){
-        int len=endHave.length();
-        return  orignalStr.substring(0,orignalStr.indexOf(endHave)+len);
-    }
+
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
 //        p.p(strCutEndNothave("12312312ab123","ab"));//12312312
