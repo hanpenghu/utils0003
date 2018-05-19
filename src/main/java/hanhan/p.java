@@ -954,7 +954,33 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         return ("".equals(s)?null:s);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public static List<?extends Object> removeNull(List<?extends Object> list) {
+
+    public  static List<String>removeKongZiFuChuan(List<String>strList){
+        while(strList.contains("")){
+            for(int i=0;i<strList.size();i++){
+                if("".equals(strList.get(i))){
+                    strList.remove(i);
+                }
+            }
+        }
+        return strList;
+    }
+
+
+//    public static void main(String[]args){
+//        List g = new linklistT<String>().a("1").a("").a("2").a("").g();
+//        p.p("-------------------------------------------------------");
+//        p.p(g);//[1, , 2, ]
+//        p.p(removeKongZiFuChuan(g));//[1, 2]
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+
+
+
+
+    public static List<?extends Object> removeNull(List<?extends Object> list) {
     if(notEmpty(list)){
         while(list.contains(null)){
             //这种方式是可以变长删除元素的
