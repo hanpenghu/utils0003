@@ -64,10 +64,39 @@ public strictfp class p implements pI{
         }
     }
 
-//    public static void main(String[]args){
+    /**注意这个方法使用的前提是:  startHave只出现过一次
+     * [------这种
+     * 从头带头到尾
+     *截取字符串originalStr从startHave(包括)开始
+     * 到最后结束
+     *
+     * */
+    public static String strCut(String originalStr,String startHave){
+        if(null==originalStr||"".equals(originalStr)){
+            return "";
+        }else if(!originalStr.contains(startHave)){
+            return  "";
+        }else{
+            return originalStr.substring(originalStr.indexOf(startHave));
+        }
+    }
+    //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
 //        p.p(strCut("eer",2,4));
 //        p.p("eer".indexOf(3));//-1
+//        p.p("-------------------------------------------------------");
+//    }
+    public static String strCutNoHead(String originalStr,String startNotHave){
+        String waiJia="{~}";
+       return  strCutNoHeadNoTail(originalStr+waiJia,startNotHave,waiJia);
+    }
+
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(strCutNoHead("12123123123dsafasdfa","ds"));//afasdfa
+//        p.p("-------------------------------------------------------");
+//        p.p("-------------------------------------------------------");
+//        p.p(strCutNoHead("12123123123dsafasdfa",""));//12123123123dsafasdfa
 //        p.p("-------------------------------------------------------");
 //    }
 
@@ -120,9 +149,26 @@ public strictfp class p implements pI{
                     );
         }
     }
+
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
 //        p.p(strCutNoHead("sdabkjwp","da","jw"));
+//        p.p("-------------------------------------------------------");
+//    }
+
+    public static String strCutEndNothave(String orignalStr,String endNotHave){
+       return  orignalStr.substring(0,orignalStr.indexOf(endNotHave));
+    }
+    public static String strCutEndhave(String orignalStr,String endHave){
+        int len=endHave.length();
+        return  orignalStr.substring(0,orignalStr.indexOf(endHave)+len);
+    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(strCutEndNothave("12312312ab123","ab"));//12312312
+//        p.p("-------------------------------------------------------");
+//        p.p("-------------------------------------------------------");
+//        p.p(strCutEndhave("12312312ab123","ab"));//12312312ab
 //        p.p("-------------------------------------------------------");
 //    }
 
@@ -197,22 +243,7 @@ public strictfp class p implements pI{
 //        p.p("-------------------------------------------------------");
 //    }
 
-    /**注意这个方法使用的前提是:  startHave只出现过一次
-     * [------这种
-     * 从头带头到尾
-     *截取字符串originalStr从startHave(包括)开始
-     * 到最后结束
-     *
-     * */
-    public static String strCut(String originalStr,String startHave){
-        if(null==originalStr||"".equals(originalStr)){
-            return "";
-        }else if(!originalStr.contains(startHave)){
-            return "";
-        }else{
-            return originalStr.substring(originalStr.indexOf(startHave));
-        }
-    }
+
 
     /**
      *
@@ -919,7 +950,7 @@ public strictfp class p implements pI{
         return ("".equals(s)?null:s);
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-public static void removeNull(List<?extends Object> list) {
+public static List<?extends Object> removeNull(List<?extends Object> list) {
     if(notEmpty(list)){
         while(list.contains(null)){
             //这种方式是可以变长删除元素的
@@ -930,8 +961,18 @@ public static void removeNull(List<?extends Object> list) {
             }
         }
     }
-
+    return list;
 }
+
+//    public static void main(String[]args){
+//        List<Object> g = linklist.b().a("1").a(null).a(2).a(null).g();
+//        p.p("-------------------------------------------------------");
+//        p.p(g);//[1, null, 2, null]
+//        p.p("-------------------------------------------------------");
+//        p.p("-------------------------------------------------------");
+//        p.p(removeNull(g));//[1, 2]
+//        p.p("-------------------------------------------------------");
+//    }
 
 
 
@@ -940,26 +981,38 @@ public static void removeNull(List<?extends Object> list) {
      * s是空字符串和null也可以,但是list是null和size=0就不行
      * list里面的null也能去除了
      * */
-        public  static List remove1EleInList(List<String> list,String s){
-            if(notEmpty(list)&&s==null){
+    public  static List<String> remove1EleInList(List<String> list,String s){
+        if(notEmpty(list)&&s==null){
+            while(list.contains(null)){
                 //这种方式是可以变长删除元素的
                 for(int i=0;i<list.size();i++){
                     if(null==list.get(i)){
                         list.remove(null);
                     }
                 }
-            }else if(notEmpty(list)){
-                //s是空字符串和null也可以,但是list是null和size=0就不行
-//                for(int i=0;i<list.size();i++){
-//                    if(dy(list.get(i),s)){
-//                        list.remove(s);
-//                    }
-//                }
-                //下面的filter其实就是留下符合条件的意思,把不等于的过滤扔掉
-                return list.stream().filter(v -> bdy(s, v)).collect(Collectors.toList());
             }
-            return list;
+
+        }else if(notEmpty(list)){
+            //下面的filter其实就是留下符合条件的意思,把不等于的过滤留着
+            return list.stream().filter(v -> bdy(s, v)).collect(Collectors.toList());
         }
+        return list;
+    }
+
+//        public static void main(String[]args){
+//            List<String> g = new linklistT<String>().a("1").a(null).a("2").a("2").a(null).g();
+//            p.p("-------------------------------------------------------");
+//            p.p(g);//[1, null, 2, 2, null]
+//            p.p("-------------------------------------------------------");
+//            p.p("-------------------------------------------------------");
+//            p.p(remove1EleInList(g,"2"));//[1, null, null]
+//            p.p("-------------------------------------------------------");
+//        }
+
+
+
+
+
     /**
      *给list集合remove掉多个元素(必须是存的String)
      * s是空字符串和null也可以,但是list是null和size=0就不行
