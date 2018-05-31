@@ -1,4 +1,4 @@
-package hanhan;
+package com.hanhan.utils0002.hanhan;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.IOUtils;
 

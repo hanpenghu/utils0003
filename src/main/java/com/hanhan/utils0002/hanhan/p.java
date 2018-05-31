@@ -1,4 +1,4 @@
-package hanhan;
+package com.hanhan.utils0002.hanhan;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import javax.servlet.http.HttpServletRequest;
@@ -1233,7 +1233,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     /**
      ****************************************************************************************
      * */
-    //@Test
+    //@Test1
    /* private static void xx(){
         p.p(Integer.class.getName());
         p.p(int.class.getTypeName());//int
@@ -1269,7 +1269,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //        return this;
 //    }
 
-    //@Test
+    //@Test1
 //    public void g(){
 //        String gad = p.gp().sad("韩寒").sad("梦如").gad();
 //        p.p(gad);//韩寒梦如
@@ -1296,7 +1296,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //        return this;
 //    }
 
-    //@Test
+    //@Test1
 //    public void f(){
 //        List lin = p.gp().setLin(1).setLin(2).setLin(3).getLin();
 //        p.p(lin);//[1,2,3]
@@ -1316,7 +1316,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //        this.arl.add(o);
 //        return this;
 //    }
-    //@Test
+    //@Test1
 //    public void f1(){
 //        List arl = p.gp().setArl(11).setArl(22).setArl(33).getArl();
 //        p.p(arl);////[11,22,33]
@@ -1617,7 +1617,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
 
-    //@Test
+    //@Test1
     public void testDD() throws ParseException {
         p.p(xjh(new SimpleDateFormat("yyyy-MM-dd").parse("2017-12-14"),new SimpleDateFormat("yyyy-MM-dd").parse("2017-12-13")));
     }
@@ -1693,7 +1693,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     /**
      ****************************************************************************************
      * */
-    //@Test
+    //@Test1
 //    public void f2(){
 //        p(dtoStrs(new Date()));
 //    }
@@ -1791,7 +1791,7 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
         Date second=tod(secondStr,"yyyy/MM/dd");
         return !isFirstDateBig(first,second);
     }
-    //@Test
+    //@Test1
    public void f3() {
     p(isFirstDateBig("2017/12/24", "2017/12/23"));//true
 }
@@ -1843,7 +1843,7 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
             return !isFirstDateBig(first,second);
         }
     }
-    //@Test
+    //@Test1
 //    public void f4() {
 //        p(isFirstDateBig(new Date(), "2017/12/02"));//true
 //    }
@@ -1944,12 +1944,12 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
              private String str;
              private BigDecimal b;
              private Double d;
-             private Test t;
-             private List<Test> list;
+             private Test1 t;
+             private List<Test1> list;
 
 
 
-     public class Test {
+     public class Test1 {
              String kk="121323";
              BigDecimal bb;
      * */
@@ -2117,7 +2117,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         return o;
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //@Test
+    //@Test1
 //    public void f5(){
 //        p(Date.class.getName());
 //    }
@@ -2204,7 +2204,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
        }
     }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //@Test
+    //@Test1
 //    public void f8() throws IllegalAccessException {
 //        List<x>list=new ArrayList<>();
 //        list.addAll(p.gp().setArl(new x().setStr("str")).setArl(new x().setStr("str")).setArl(new x().setStr("xxx")).getArl());
@@ -2215,7 +2215,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //
 //    }
 
-    //@Test
+    //@Test1
 //    public void f9() throws IllegalAccessException {
 //        List<x>list=new ArrayList<>();
 //        list.addAll(p.gp().setArl(new x().setStr("str")).setArl(new x().setStr("str")).setArl(new x().setStr("xxx")).getArl());
@@ -2227,7 +2227,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //@Test
+    //@Test1
 //    public void f6(){
 //        p.p("".getClass().getTypeName());
 //        p.p(new Integer(5).getClass().getTypeName());
@@ -2264,7 +2264,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //
 //        @Override
 //        public String toString() {
-//            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.hanhan.p.x{");
+//            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.com.hanhan.utils0002.hanhan.p.x{");
 //            sb.append("x=").append(x);
 //            sb.append(", str='").append(str).append('\'');
 //            sb.append('}');
@@ -2275,7 +2275,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     /**
      *
      * */
-    //@Test
+    //@Test1
 //    private void f7(){
 //        Field[] declaredFields = x.class.getDeclaredFields();
 //        for(Field field:declaredFields){
@@ -3124,7 +3124,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      *
      *
      * 输入从src下开始的路径如下即可
-     * com/footing/website/hanhan/1
+     * com/footing/website/com.hanhan.utils0002.hanhan/1
      *
      * 上面1是个文本文件 com文件夹是在src下面
      * */
@@ -3139,7 +3139,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 //    public static void main(String[]args){
-//          p(xiangDuiSrcDeLuJingDuTxt("com/footing/website/hanhan/1"));
+//          p(xiangDuiSrcDeLuJingDuTxt("com/footing/website/com.hanhan.utils0002.hanhan/1"));
 //    }
 
 
@@ -3230,16 +3230,16 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * 通过当前类得到当前类的加载路径
      *路径
      * 类的加载路径(类clazz所在的文件夹)
-     * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
+     * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
      * */
 
     public static String classLoadPath(Class clazz){
         //得到的很可能是这种路径
-        //          /E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
+        //          /E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
         String s= clazz.getResource("").getPath();
         if(p.dy(p.xg,s.substring(0,1))){
             //得到这种  类所在的文件夹
-            //           E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
+            //           E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
             s=s.substring(1);
         }
         return s;
@@ -3379,7 +3379,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //    }
 
     //得到上五层目录
-    //  getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test-classes\\com\\ipacedev")
+    //  getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test1-classes\\com\\ipacedev")
     //得到 E:\1\work_space  最后没有杠的目录
     public static String getUp5Dir(String currPath){
         return p.getParent(p.getUp4Dir(currPath));
@@ -3389,7 +3389,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
-//        p.p(getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test-classes\\com\\ipacedev"));
+//        p.p(getUp5Dir("E:\\1\\work_space\\TCode001\\target\\test1-classes\\com\\ipacedev"));
 //        p.p("-------------------------------------------------------");
 //    }
 
@@ -4013,7 +4013,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 //    public static void main(String[]args) throws UnsupportedEncodingException {
 //        Map<String,String>params=new LinkedHashMap<>();
-//        params.put("hanhan","23");
+//        params.put("com.hanhan.utils0002.hanhan","23");
 //        params.put("梦如","18");
 //        p.p("-------------------------------------------------------");
 //        p.p(urlJoinParams("www.baidu.com",params));

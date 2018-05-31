@@ -1,5 +1,6 @@
 package com.hanhan.utils0002;
 
+import com.hanhan.utils0002.Cnst.C;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @SpringBootApplication
 @EnableScheduling
-//@MapperScan(InterFaceCnst.daoCnst)
+//如果sql写在mybatis的方法上,可以不要xml文件,亲子实验,xml文件只是为了将sql吸收进来
+@MapperScan(C.daoPath)
 public class Utils0002Application {
 	private static final Logger l = LoggerFactory.getLogger(Utils0002Application.class);
 	public static void main(String[] args) {

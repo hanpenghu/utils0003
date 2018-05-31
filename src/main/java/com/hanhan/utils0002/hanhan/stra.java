@@ -1,4 +1,4 @@
-package hanhan;
+package com.hanhan.utils0002.hanhan;
 
 /**
  *使用相加的方式得到字符串

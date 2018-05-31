@@ -1,10 +1,9 @@
 package com.hanhan.utils0002.Test;
 
-import hanhan.p;
+import com.hanhan.utils0002.hanhan.p;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.List;
 
 public class Test {
     String kk="121323";
@@ -31,7 +30,7 @@ public class Test {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("com.hanhan.utils0002.Test.Test{");
+        final StringBuffer sb = new StringBuffer("com.com.hanhan.utils0002.hanhan.utils0002.Test1.Test1{");
         sb.append("kk='").append(kk).append('\'');
         sb.append('}');
         return sb.toString();

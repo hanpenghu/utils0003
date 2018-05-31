@@ -1,11 +1,14 @@
-package hanhan;
+package com.hanhan.utils0002.hanhan;
 
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.Map;
 
-public class linkmap {
-//        public static void main(String[]args){
-//        Map g = linkmap.b()
+/**
+ *HashMap添加
+ * */
+public class hashmap {
+//    public static void main(String[]args){
+//        Map g = hashmap.b()
 //                .a("1", "韩寒")
 //                .a("3", "梦如")
 //                .a("2", "佳城").g();
@@ -13,18 +16,18 @@ public class linkmap {
 //    }
     private Map<Object,Object> m=null;
     //构造函数
-    public linkmap(){
-        m=new LinkedHashMap<>();
+    public hashmap(){
+        m=new HashMap<>();
     }
 
     //建造者
-    public static linkmap b(){
-        return new linkmap();
+    public static hashmap b(){
+        return new hashmap();
     }
 
     //添加者
 
-    public linkmap a(Object k, Object v){
+    public hashmap a(Object k, Object v){
         m.put(k,v);
         return this;
     }
@@ -33,4 +36,6 @@ public class linkmap {
     public Map g(){
         return m;
     }
+
+
 }
