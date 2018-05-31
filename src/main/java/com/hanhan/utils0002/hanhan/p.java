@@ -400,6 +400,8 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
     /*【群主】变色龙 2018-04-08 15:52:41
     一般 秒级 + 3位随机数*/
 
@@ -437,6 +439,70 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //        p.p(random0_999AndTime());
 //        p.p("-------------------------------------------------------");
 //    }
+
+//    public static void main(String[]args) throws InterruptedException {
+//        while(true){
+//            String s = timeStampRandom0999();
+//            p.p("---------------------------"+s.length()+"----------------------------");
+//            p.p(s);
+//            p.p("-------------------------------------------------------");
+////            Thread.sleep(2000);
+//        }
+//
+//    }
+
+
+
+    /**
+     *时间戳+0到999之间随机码做id
+     * 毫秒级时间戳13位+1到3位随机   共14到16位
+     * 152318040010237
+     * 这种
+     * */
+    public static String timeStampRandom0999(){
+        return String.valueOf(p.getTimeStamp())+String.valueOf(p.random0_999());
+    }
+
+    /**
+     * 毫秒级时间戳13位
+     *时间戳+"-"+0到999之间随机码做id
+     * 1523180466849-593
+     * 这种
+     * 13位时间戳+"-"+1到3位随机数共15到17位
+     * */
+    public static String timeStamp_Random0999(){
+        return String.valueOf(p.getTimeStamp())+"-"+String.valueOf(p.random0_999());
+    }
+
+    /**
+     *毫秒级时间+0到999之间的随机数
+     * 180531223635864906
+     * yyMMddHHmmssSSS+  1到3位随机码
+     * 共16到18位
+     * */
+
+    public static String  suiji01(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.dtoStr(p.getDate(),"yyMMddHHmmssSSS")+p.strValeOf(s);
+        return s101;
+    }
+
+    /**
+     *毫秒级时间+0到999之间的随机数
+     * 180531223913822
+     * yyMMddHHmmss+  1到3位随机码
+     * 共13到15位
+     * */
+    public static String  suiji02(){
+        Random random = new Random();
+        int s = random.nextInt(999);
+        String s101 = p.dtoStr(p.getDate(),"yyMMddHHmmss")+p.strValeOf(s);
+        return s101;
+    }
+
+
+
     /**
      *
      *毫秒级时间+0到999之间的随机数
@@ -639,6 +705,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
     /**
+     * 16到18位
      *180408170814386251
      * 这种,时间去掉20这个头后+0到999之间的随机数
      * */
@@ -654,27 +721,10 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //    }
 
 
-/**
- *时间戳+0到999之间随机码做id
- * 毫秒级时间戳13位
- * 152318040010237
- * 这种
- * */
 
 
-    public static String timeStampRandom0999(){
-        return String.valueOf(p.getTimeStamp())+String.valueOf(p.random0_999());
-    }
-    /**
-     * 毫秒级时间戳13位
-     *时间戳+"-"+0到999之间随机码做id
-     * 1523180466849-593
-     * 这种
-     * 13位时间戳+"-"+1到3位随机数共15到17位
-     * */
-    public static String timeStamp_Random0999(){
-        return String.valueOf(p.getTimeStamp())+"-"+String.valueOf(p.random0_999());
-    }
+
+
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
 //        p.p(timeStamp_Random0999());
