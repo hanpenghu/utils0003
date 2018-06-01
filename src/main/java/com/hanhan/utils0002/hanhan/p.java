@@ -489,7 +489,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
     /**
-     *毫秒级时间+0到999之间的随机数
+     *秒级时间+0到999之间的随机数
      * 180531223913822
      * yyMMddHHmmss+  1到3位随机码
      * 共13到15位
