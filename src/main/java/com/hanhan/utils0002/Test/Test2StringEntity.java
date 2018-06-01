@@ -1,7 +1,7 @@
 package com.hanhan.utils0002.Test;
 
 import com.alibaba.fastjson.JSON;
-import com.hanhan.utils0002.hanhan.p;
+import hanhan.p;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -32,7 +32,7 @@ public class Test2StringEntity {
         p.p("-------------------------------------------------------");
         //{"str":"","b":"201","d":"12121.0","t":{"kk":"哈哈哈"}}
         p.p(JSON.toJSONString(allFields2String));
-        //com.com.hanhan.utils0002.hanhan.utils0002.Test1.Test2StringEntity{str='', b=201, d=12121.0, t=com.com.hanhan.utils0002.hanhan.utils0002.Test1.Test1{kk='哈哈哈'}}
+        //com.hanhan.utils0002.Test1.Test2StringEntity{str='', b=201, d=12121.0, t=com.hanhan.utils0002.Test1.Test1{kk='哈哈哈'}}
         p.p(JSON.parseObject(JSON.toJSONString(allFields2String),Test2StringEntity.class));
         p.p("-------------------------------------------------------");
     }
@@ -84,7 +84,7 @@ public class Test2StringEntity {
 
     @Override
     public String toString() {
-        final StringBuffer sb = new StringBuffer("com.com.hanhan.utils0002.hanhan.utils0002.Test1.Test2StringEntity{");
+        final StringBuffer sb = new StringBuffer("com.hanhan.utils0002.Test1.Test2StringEntity{");
         sb.append("str='").append(str).append('\'');
         sb.append(", b=").append(b);
         sb.append(", d=").append(d);

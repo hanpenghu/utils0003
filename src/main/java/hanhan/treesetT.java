@@ -1,4 +1,4 @@
-package com.hanhan.utils0002.hanhan;
+package hanhan;
 
 import java.util.Set;
 import java.util.TreeSet;

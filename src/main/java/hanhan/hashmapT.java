@@ -1,4 +1,4 @@
-package com.hanhan.utils0002.hanhan;
+package hanhan;
 
 import java.util.HashMap;
 import java.util.Map;

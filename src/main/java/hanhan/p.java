@@ -1,4 +1,4 @@
-package com.hanhan.utils0002.hanhan;
+package hanhan;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import javax.servlet.http.HttpServletRequest;
@@ -2314,7 +2314,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //
 //        @Override
 //        public String toString() {
-//            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.com.hanhan.utils0002.hanhan.p.x{");
+//            final StringBuffer sb = new StringBuffer("com.winwin.picreport.Futils.hanhan.p.x{");
 //            sb.append("x=").append(x);
 //            sb.append(", str='").append(str).append('\'');
 //            sb.append('}');
@@ -3174,7 +3174,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      *
      *
      * 输入从src下开始的路径如下即可
-     * com/footing/website/com.hanhan.utils0002.hanhan/1
+     * com/footing/website/hanhan/1
      *
      * 上面1是个文本文件 com文件夹是在src下面
      * */
@@ -3189,7 +3189,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 //    public static void main(String[]args){
-//          p(xiangDuiSrcDeLuJingDuTxt("com/footing/website/com.hanhan.utils0002.hanhan/1"));
+//          p(xiangDuiSrcDeLuJingDuTxt("com/footing/website/hanhan/1"));
 //    }
 
 
@@ -3280,16 +3280,16 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * 通过当前类得到当前类的加载路径
      *路径
      * 类的加载路径(类clazz所在的文件夹)
-     * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
+     * E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
      * */
 
     public static String classLoadPath(Class clazz){
         //得到的很可能是这种路径
-        //          /E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
+        //          /E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
         String s= clazz.getResource("").getPath();
         if(p.dy(p.xg,s.substring(0,1))){
             //得到这种  类所在的文件夹
-            //           E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/com.hanhan.utils0002.hanhan/
+            //           E:/1/work_space/luxclub_jeesite/out/production/luxclub_jeesite/com/footing/website/hanhan/
             s=s.substring(1);
         }
         return s;
@@ -4063,7 +4063,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 //    public static void main(String[]args) throws UnsupportedEncodingException {
 //        Map<String,String>params=new LinkedHashMap<>();
-//        params.put("com.hanhan.utils0002.hanhan","23");
+//        params.put("hanhan","23");
 //        params.put("梦如","18");
 //        p.p("-------------------------------------------------------");
 //        p.p(urlJoinParams("www.baidu.com",params));

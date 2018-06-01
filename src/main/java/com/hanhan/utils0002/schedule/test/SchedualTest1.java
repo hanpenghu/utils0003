@@ -1,7 +1,7 @@
 package com.hanhan.utils0002.schedule.test;
 
 import com.hanhan.utils0002.Cnst.D;
-import com.hanhan.utils0002.hanhan.p;
+import hanhan.p;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;

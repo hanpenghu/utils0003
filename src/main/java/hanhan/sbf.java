@@ -1,4 +1,4 @@
-package com.hanhan.utils0002.hanhan;
+package hanhan;
 
 /**
  *使用StringBuffer添加成一个字符串
