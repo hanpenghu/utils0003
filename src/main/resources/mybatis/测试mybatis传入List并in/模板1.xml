@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hanhan.utils0002.dao.dao测试mybatis传入List并in.TestMybatisList">
+
+    <select id="testListIn" resultType="java.lang.String">
+        SELECT prd_no FROM  PRDT where prd_no in
+        <foreach item="item" index="index" collection="prd_noList" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>
