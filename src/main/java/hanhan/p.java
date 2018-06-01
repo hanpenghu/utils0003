@@ -551,7 +551,7 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
-//        p.p(timeAndRandom0_999());
+//        p.p(timeAndRandom0_999NoHead());
 //        p.p("-------------------------------------------------------");
 //    }
     /**
