@@ -70,6 +70,27 @@ public strictfp class p implements pI{
         }
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *剪切2头,空格,避免空指针
+     * 截取两头空格避免空指针
+     * */
+    public static String trimNoNull(String str2Trim){
+        if(null==str2Trim){
+            return "";
+        }else{
+            return str2Trim.trim();
+        }
+    }
+
+    public static String trimHaveNull(String str2Trim){
+        if(null==str2Trim){
+            return null;
+        }else{
+            return str2Trim.trim();
+        }
+    }
+
     /**
      *截取字符串
      * 注意索引start是从0开始,
