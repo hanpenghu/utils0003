@@ -71,6 +71,17 @@ public strictfp class p implements pI{
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+    public static String trim(String str2Trim){
+        if(null==str2Trim){
+            return "is fuck nullPoint";
+        }else{
+            return str2Trim.trim();
+        }
+    }
+
+
     /**
      *剪切2头,空格,避免空指针
      * 截取两头空格避免空指针
