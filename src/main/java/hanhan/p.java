@@ -53,19 +53,15 @@ public strictfp class p implements pI{
      * */
 
     public static boolean dgbq(List<Boolean> bList){
-        for(boolean b:bList){
-            if(b){
-                //不管
-            }else{
-                //只要有一个非的就返回false
-                return false;
-            }
+        if(empty(bList)){
+            return false;
+        }
+        if(bList.contains(false)){
+            return false;
         }
         //如果能走到这里,就返回true
         return true;
     }
-
-
 
 
 
