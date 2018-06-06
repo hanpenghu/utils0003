@@ -52,6 +52,8 @@ public strictfp class p implements pI{
      *多个一起并且
      * 注意添加到list的顺序,比如是    order!=null  && order.getId==12111
      *必须是先添加 order!=null这个boolean先判空才行
+     *
+     * dgbq==多个并且
      * */
 
     public static boolean dgbq(List<Boolean> bList){
