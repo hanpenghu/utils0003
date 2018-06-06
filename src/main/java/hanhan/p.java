@@ -50,14 +50,21 @@ public strictfp class p implements pI{
 
     /**
      *多个一起并且
+     * 注意添加到list的顺序,比如是    order!=null  && order.getId==12111
+     *必须是先添加 order!=null这个boolean先判空才行
      * */
 
     public static boolean dgbq(List<Boolean> bList){
         if(empty(bList)){
             return false;
         }
-        if(bList.contains(false)){
-            return false;
+        for(boolean b:bList){
+            if(b){
+                //此时继续
+            }else{
+                //有一个是 false就返回false
+                return false;
+            }
         }
         //如果能走到这里,就返回true
         return true;
