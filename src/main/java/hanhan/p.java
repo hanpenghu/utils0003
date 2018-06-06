@@ -30,6 +30,48 @@ public strictfp class p implements pI{
 ////                -------------------------------------------------------
 //    }
 
+
+
+
+
+
+    /**
+     *2个一起并且
+     * */
+    public static  boolean bq(boolean a,boolean b){
+        if(a){
+            if(b){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    /**
+     *多个一起并且
+     * */
+
+    public static boolean dgbq(List<Boolean> bList){
+        for(boolean b:bList){
+            if(b){
+                //不管
+            }else{
+                //只要有一个非的就返回false
+                return false;
+            }
+        }
+        //如果能走到这里,就返回true
+        return true;
+    }
+
+
+
+
+
+
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
