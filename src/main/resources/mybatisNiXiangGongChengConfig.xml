@@ -42,12 +42,14 @@
         </jdbcConnection> -->
 
         <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL和NUMERIC类型解析为java.math.BigDecimal -->
-        <javaTypeResolver>
+        <!--<javaTypeResolver>
             <property name="forceBigDecimals" value="true" />
+        </javaTypeResolver>-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false" />
         </javaTypeResolver>
-
         <!-- targetProject:生成PO类的位置，重要！！ -->
-        <javaModelGenerator targetPackage="com.winwin.picreport.Edto"
+        <javaModelGenerator targetPackage="com.hanhan.utils0002.entity"
             targetProject=".\src\main\java">
             <!-- enableSubPackages:是否让schema作为包的后缀 -->
             <property name="enableSubPackages" value="false" />
@@ -55,19 +57,19 @@
             <property name="trimStrings" value="true" />
 
         </javaModelGenerator>
-        
-        
-        
+
+
+
         <!-- targetProject:mapper映射文件生成的位置，重要！！ -->
-        <sqlMapGenerator targetPackage="resources.mybatis.xmlmapper"
-            targetProject=".\src\main">
+        <sqlMapGenerator targetPackage="mybatis.xml1"
+            targetProject=".\src\main\resources">
             <property name="enableSubPackages" value="false" />
         </sqlMapGenerator>
-        
-        
+
+
         <!-- targetPackage：mapper接口生成的位置，重要！！ -->
         <javaClientGenerator type="XMLMAPPER"
-            targetPackage="com.winwin.picreport.Ddao.reportxmlmapper"
+            targetPackage="com.hanhan.utils0002.dao.dao1"
             targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
@@ -79,7 +81,10 @@
         	enableSelectByExample="false"
         ></table> -->
         <!--dept cust salm my_wh-->
-        <table tableName="sapso999999"></table><!--产品打样表 -->
+        <table tableName="prdt">
+            <!--为了避免spc_tax造成Bigdecimal,将他在这里可以强转成Double -->
+            <columnOverride column="spc_tax" javaType="Double" jdbcType="NUMERIC" />
+        </table><!--产品打样表 -->
        <!-- <table tableName="up_def"></table>--><!-- 单价表-->
        <!-- <table tableName="cur_id"></table>--><!--币别表 -->
       	<!-- <table tableName="before_same_prdNo_merge"></table>-->
