@@ -36,7 +36,7 @@ public strictfp class p implements pI{
 
 
     /**
-     *2个一起并且
+     *2个一起并且,注意先后顺序,因为有的必须a成立后b才能再判断
      * */
     public static  boolean bq(boolean a,boolean b){
         if(a){
