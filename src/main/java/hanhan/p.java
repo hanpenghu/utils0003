@@ -3789,6 +3789,15 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     }
 
 
+    //抛出异常并记录异常到list
+    public static void throwEAddToList(Exception e,String strException,List<String> msgExceptions){
+        msgExceptions.add(strException);
+        e.printStackTrace();
+        throw new RuntimeException(strException);
+    }
+
+
+
     //异常抛出
     public static void throwE(String s){
         throw new RuntimeException(s);
