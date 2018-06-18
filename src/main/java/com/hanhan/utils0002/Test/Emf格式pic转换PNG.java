@@ -1,22 +1,12 @@
 package com.hanhan.utils0002.Test;
-
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
-
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-
 import hanhan.p;
 import org.freehep.graphicsio.emf.EMFInputStream;
 import org.freehep.graphicsio.emf.EMFRenderer;
-import org.freehep.graphicsio.emf.gdi.BitmapInfoHeader;
-
 /**
  * Created by Administrator on 2018/6/13.
  */
