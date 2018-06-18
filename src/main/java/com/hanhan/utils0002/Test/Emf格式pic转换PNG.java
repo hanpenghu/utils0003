@@ -24,7 +24,7 @@ public class Emf格式pic转换PNG {
 
     public static void main(String[] args) throws IOException {
         Emf格式pic转换PNG e=new Emf格式pic转换PNG();
-        String s="E:\\1.emf";
+        String s="E:\\2.emf";
         s="E:\\image10.emf";
         EMFInputStream inputStream = new EMFInputStream(new FileInputStream(s), EMFInputStream.DEFAULT_VERSION);
         byte[] bytes = e.emfToPng(inputStream);
