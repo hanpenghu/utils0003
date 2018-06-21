@@ -803,6 +803,19 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
     /**
+     *上面那种简化成下面这种
+     * 180621202154373-767
+     * 17到19位
+     * */
+    public static String sj(){
+        return timeAndRandom0_999NoSymbolRemoveHead_();
+    }
+
+    public static void main(String[]args){
+        p.p(sj());
+    }
+
+    /**
      *毫秒级时间去掉符号+" "+随机码
      * Symbol是随机码的意思
      * 20180408165748545179
