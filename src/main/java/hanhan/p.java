@@ -811,9 +811,9 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         return timeAndRandom0_999NoSymbolRemoveHead_();
     }
 
-    public static void main(String[]args){
-        p.p(sj());
-    }
+//    public static void main(String[]args){
+//        p.p(sj());
+//    }
 
     /**
      *毫秒级时间去掉符号+" "+随机码
