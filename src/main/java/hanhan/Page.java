@@ -8,13 +8,9 @@ import java.util.Map;
  *
  * 再set  perPageSize-----前端穿过来,不传默认写死10
  *
- * 再set   totalRecSize-------查数据库的总记录数
+ * 再set   totalRecSize-------查数据库的总记录数,此时顺便把totalPageSize(总页数)也设置了
  *
  *
- *
- * 再set   zongYeShu------这一步是为了自动计算zongYeShu,
- * 但是这个set可以不用,因为我在上一步set调
- * 了这个set
  *
  *
  * */
@@ -38,10 +34,12 @@ public class Page {
 
 
 
+    //设置当前页码
     public void setCurrentPage(Integer currentPage) {
         this.currentPage = currentPage;
     }
 
+    //得到当前页码
     public Integer getCurrentPage() {
         return currentPage;
     }
@@ -50,7 +48,7 @@ public class Page {
 
 
 
-
+    //设置每页显示数
     public void setPerPageSize(Integer perPageSize) {
         if(empty(perPageSize)||perPageSize==0){
             perPageSize=10;
@@ -58,6 +56,10 @@ public class Page {
         this.perPageSize = perPageSize;
     }
 
+
+
+
+    //得到每页显示数
     public Integer getPerPageSize() {
         if(empty(perPageSize)||perPageSize==0){
             perPageSize=10;
@@ -69,9 +71,7 @@ public class Page {
 
 
 
-    public void setTotalPageSize(Integer totalPageSize) {
-        this.totalPageSize = totalPageSize;
-    }
+
 
 
     //得到总记录数
@@ -89,7 +89,12 @@ public class Page {
     }
 
 
+    //设置总页数,不用设置了,在设置总记录数的时候已经设置了
+    public void setTotalPageSize(Integer totalPageSize) {
+        this.totalPageSize = totalPageSize;
+    }
 
+    //得到总页数
     public Integer getTotalPageSize() {
         this.setTotalPageSize();
         return this.totalPageSize;
