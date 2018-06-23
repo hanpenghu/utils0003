@@ -29,9 +29,11 @@ public class Page {
 
 
     //装数据对象
-    private List objList;
+    private List<String> strList;
 
+    private List<Map<String,String>>mapStrList;
 
+    private Map<String,String>map;
 
 
     //设置当前页码
@@ -110,21 +112,32 @@ public class Page {
     }
 
 
-
-
-    public List getObjList() {
-        return objList;
+    public List<String> getStrList() {
+        return strList;
     }
 
-    public void setObjList(List objList) {
-        this.objList = objList;
+    public void setStrList(List<String> strList) {
+        this.strList = strList;
     }
 
 
 
 
+    public Map<String, String> getMap() {
+        return map;
+    }
 
+    public void setMap(Map<String, String> map) {
+        this.map = map;
+    }
 
+    public List<Map<String, String>> getMapStrList() {
+        return mapStrList;
+    }
+
+    public void setMapStrList(List<Map<String, String>> mapStrList) {
+        this.mapStrList = mapStrList;
+    }
 
     /**
      *以下是空判断和非空判断以及所有非空判断和所有空的判断,如果是包含空的
