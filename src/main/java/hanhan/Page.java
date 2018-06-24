@@ -1,5 +1,6 @@
 package hanhan;
 import java.util.Collection;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -27,7 +28,8 @@ public class Page {
     //总页数
     private Integer totalPageSize;
 
-
+    //装一些实体数据
+    private List<?extends Object> objList;
     //装数据对象
     private List<String> strList;
 
@@ -137,6 +139,15 @@ public class Page {
 
     public void setMapStrList(List<Map<String, String>> mapStrList) {
         this.mapStrList = mapStrList;
+    }
+
+
+    public List<? extends Object> getObjList() {
+        return objList;
+    }
+
+    public void setObjList(List<? extends Object> objList) {
+        this.objList = objList;
     }
 
     /**
