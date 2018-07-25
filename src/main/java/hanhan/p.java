@@ -518,6 +518,8 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         if(null==s||"".equals(s)){
             return null;
         }else{
+            //注意有的数字有逗号分隔符,replace就算再 没有","的情况下也不会出错
+            s=s.replace(",","");
             try {
                 new BigDecimal(s);
             } catch (Exception e) {
