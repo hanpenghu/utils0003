@@ -66,7 +66,7 @@ public interface pI {
      String zgth="！";//中文感叹号
      String egth="!";//英文感叹号
      String at="@";
-     String rmb="￥";
+     String rmb="¥";
      String dollor="$";
      String bfh="%";
      String zmh="：";//中文冒号
