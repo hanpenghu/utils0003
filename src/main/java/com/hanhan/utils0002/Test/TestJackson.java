@@ -21,4 +21,24 @@ public class TestJackson {
         return testJacksonEntity1;
     }
 
+
+
+    public static void main(String[]args){
+            f();
+            g();
+    }
+
+
+    public static void f(){
+        return ;
+    }
+
+    public static void g(){
+//        if(true){
+//            return ;
+//        }
+        System.out.println("你好");
+
+    }
+
 }

@@ -2501,6 +2501,9 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * 和min的值都写一样,比如max=min=4就是说四舍五入后小数后面留4位
      * */
     public static String getNum(int max,int min,String num){
+        if(null==num){
+            return null;
+        }
         num=num.replace(",","");
         BigDecimal b;
         try {
