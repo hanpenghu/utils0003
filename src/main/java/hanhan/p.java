@@ -2621,7 +2621,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return false;
         }else{
             File file=new File(filePath);
-            if(file==null){
+            if(null==file){
                 return false;
             }else{
                 if(file.exists()){
