@@ -2600,6 +2600,16 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
     public static boolean notExists(File file){
         return !exists(file);
     }
+
+    public static boolean notDic(File file){
+        if(null==file){
+            return true;
+        }else if(file.isDirectory()){
+            return false;
+        }else {
+            return true;
+        }
+    }
     /**
      *根据路径判断文件是否存在
      * */
