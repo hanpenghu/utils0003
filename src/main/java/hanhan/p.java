@@ -2161,6 +2161,74 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
 
 
 
+
+//    public static void main(String[]args){
+//        List <String>list = stringNumDesc(new linklistT<String>().a(null).a("100").a("2").g());
+//
+//        for(String s:list){
+//            p.p(s);
+//        }
+//
+//    }
+
+    //降序    字符串数字降序
+    public static List<String> stringNumDesc(List<String> ss){
+        try {
+            for(String s:ss){
+                if(!isBd(s)){
+                    System.out.println("该集合中有不是数字的字符串,无法进行排序");
+                    return null;
+                }
+            }
+            TreeSet<String> sSet = new TreeSet(
+                    (o1,o2)-> {
+                        Double d1 = new Double((String) o1);
+                        Double d2 = new Double((String) o2);
+                        if(d1==d2){
+                            return 0;
+                        }else if(d1<d2){
+                            return 1;
+                        }else{
+                            return -1;
+                        }
+                    });
+            sSet.addAll(ss);
+            return new LinkedList<String>(sSet);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
+    //升序    字符串数字升序
+    public static List<String> stringNumAsc(List<String> ss){
+        try {
+            for(String s:ss){
+                if(!isBd(s)){
+                    System.out.println("该集合中有不是数字的字符串,无法进行排序");
+                    return null;
+                }
+            }
+            TreeSet<String> sSet = new TreeSet(
+                    (o1,o2)-> {
+                        Double d1 = new Double((String) o1);
+                        Double d2 = new Double((String) o2);
+                        if(d1==d2){
+                            return 0;
+                        }else if(d1<d2){
+                            return -1;
+                        }else{
+                            return 1;
+                        }
+                    });
+            sSet.addAll(ss);
+            return new LinkedList<String>(sSet);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     /**
