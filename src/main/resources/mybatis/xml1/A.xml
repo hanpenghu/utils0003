@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hanhan.utils0002.dao.dao1.A">
+
+  <!-- 经证明,日期类型可以直接被转化
+   <dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+  -->
+     <select id="testDate" resultType="com.hanhan.utils0002.entity.Prdt">
+       SELECT
+       SYS_DATE AS sysDate,
+       SPC_TAX AS spcTax,
+       pak_Exc AS pakExc
+       FROM PRDT WHERE PRD_NO='10100002'
+     </select>
+
+
+    <!--
+
+   使用以下sqlServer驱动的话,不用映射时间类型,直接可以插入java的Date格式
+    <dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+    -->
+    <insert id="testDateInsert" parameterType="com.hanhan.utils0002.entity.Prdt">
+        INSERT INTO PRDT (prd_no,lock_Date)VALUES(#{prdNo},#{lockDate})
+    </insert>
+
+</mapper>

@@ -81,10 +81,10 @@
         	enableSelectByExample="false"
         ></table> -->
         <!--dept cust salm my_wh-->
-        <table tableName="prdt">
-            <!--为了避免spc_tax造成Bigdecimal,将他在这里可以强转成Double -->
+       <!-- <table tableName="prdt">
+            &lt;!&ndash;为了避免spc_tax造成Bigdecimal,将他在这里可以强转成Double &ndash;&gt;
             <columnOverride column="spc_tax" javaType="Double" jdbcType="NUMERIC" />
-        </table><!--产品打样表 -->
+        </table>--><!--产品打样表 -->
        <!-- <table tableName="up_def"></table>--><!-- 单价表-->
        <!-- <table tableName="cur_id"></table>--><!--币别表 -->
       	<!-- <table tableName="before_same_prdNo_merge"></table>-->

@@ -1,5 +1,7 @@
 package com.hanhan.utils0002;
 
+import com.fasterxml.jackson.databind.MapperFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hanhan.utils0002.Cnst.C;
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -18,14 +20,7 @@ public class Utils0002Application {
 	private static final Logger l = LoggerFactory.getLogger(Utils0002Application.class);
 	public static void main(String[] args) {
 
-
-
-
 		SpringApplication.run(Utils0002Application.class, args);
-
-
-
-
 
 	}
 }
