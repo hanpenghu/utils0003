@@ -4380,16 +4380,72 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 
+/**
+ *去掉文件名中 字符串中 的路径特殊符号
+ * 比如
+ * #   影响访问路径
+ * ?   影响 路径跟参数
+ * &   路径分隔符
+ * =   路径参数等号符号
+ * * */
+
+    /**
+     * 这里参数str指的是文件名
+     *这个是路径中绝对不能有的符号去除
+     * */
+    public  static String delNotPath(String fileName){
+        if(null==fileName){
+            return fileName;
+        }else{
+            return fileName.replace("#","_jh_")
+                    .replace("?","_wh_")
+                    .replace("&","_bq_")
+                    .replace("=","_dy_");
+        }
+    }
+
+    /**
+     * 这里参数str指的是文件名
+     *加强到sqlServer不能模糊查询要去掉  [   和   ]
+     *
+     * */
+
+    public  static String delNotPathNotSql(String fileName){
+        if(null==fileName){
+            return fileName;
+        }else{
+            return fileName.replace("#","_jh_")
+                    .replace("?","_wh_")
+                    .replace("&","_bq_")
+                    .replace("=","_dy_")
+                    .replace("[","_zzkh_")
+                    .replace("]","_yzkh_");
+        }
+    }
 
 
+    /**
+     * 这里参数str指的是文件名
+     *加强到sqlServer不能模糊查询要去掉  [   和   ]
+     *并且加强到我常用的  !  做分隔符号要去掉
+     * !  一般做路径和唯一id分隔
+     * ;  一般做2个路径之间的分隔
+     * */
 
-
-
-
-
-
-
-
+    public  static String delNotPathNotSqlNotSplit(String fileName){
+        if(null==fileName){
+            return fileName;
+        }else{
+            return fileName.replace("#","_jh_")
+                    .replace("?","_wh_")
+                    .replace("&","_bq_")
+                    .replace("=","_dy_")
+                    .replace("[","_zzkh_")
+                    .replace("]","_yzkh_")
+                    .replace("!","_gth_")
+                    .replace(";","_fh_");
+        }
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 }
