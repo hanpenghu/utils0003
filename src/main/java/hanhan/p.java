@@ -62,6 +62,56 @@ public strictfp class p implements pI{
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
+     * 将一个list均分成n个list,主要通过偏移量来实现的
+     * @param source
+     * @return
+     */
+    public static <T> List<List<T>> avgList(List<T> source,int n){
+        List<List<T>> result=new ArrayList<List<T>>();
+        int remaider=source.size()%n;  //(先计算出余数)
+        int number=source.size()/n;  //然后是商
+        int offset=0;//偏移量
+        for(int i=0;i<n;i++){
+            List<T> value=null;
+            if(remaider>0){
+                value=source.subList(i*number+offset, (i+1)*number+offset+1);
+                remaider--;
+                offset++;
+            }else{
+                value=source.subList(i*number+offset, (i+1)*number+offset);
+            }
+            if(null!=value&&value.size()>0){
+                result.add(value);
+            }
+        }
+        return result;
+    }
+
+
+//    public static void main(String[]args){
+//        List<String> g = new linklistT<String>().a("1")
+//                .a("2")
+//                .a("3")
+//                .a("4")
+//                .g();
+//        List<List<String>> list = p.avgList(g, 3);
+//        p.p(list.size());
+//        for(List<String> list1:list){
+//            p.p("-------------------------------------------------------");
+//            for(String s:list1){
+//                p.p("---------《"+s+"》---------");
+//            }
+//            p.p("-------------------------------------------------------");
+//        }
+//
+//    }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     *
+     *
      *2个一起并且,注意先后顺序,因为有的必须a成立后b才能再判断
      * */
     public static  boolean bq(boolean a,boolean b){
