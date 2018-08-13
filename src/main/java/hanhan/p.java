@@ -33,8 +33,34 @@ public strictfp class p implements pI{
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     *分页数量
+     * 比如当要对一定数量的庞大id归类成几批再循环的时候,
+     * 就会用到此工具
+     * totalCount   总页数
+     * perPageCount  每页显示数
+     * totalPageCount 总页数
+     * */
+
+    public static int  batchData(int totalCount,int perPageCount){
+        int totalPageCount;
+        if(totalCount%perPageCount==0){
+            totalPageCount=totalCount/perPageCount;
+        }else{
+            totalPageCount=totalCount/perPageCount+1;
+        }
+        return totalPageCount;
+    }
 
 
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(batchData(100,1000));
+//        p.p("-------------------------------------------------------");
+//    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      *2个一起并且,注意先后顺序,因为有的必须a成立后b才能再判断
      * */
