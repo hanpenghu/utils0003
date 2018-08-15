@@ -1,4 +1,5 @@
 package hanhan;
+//import com.hanhan.utils0002.Test.Test2StringEntity;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 import javax.servlet.http.HttpServletRequest;
@@ -1233,6 +1234,45 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     public static String strNullToSpace(String s){
         return (null==s?"":s);
     }
+
+
+    /**
+     * 反射,内省,将类里面的String的null变成""
+     *将对象里面的String类型的null变成space
+     * */
+    public static void strNullToSpace(Object o){
+        List<Field> fieldList=new ArrayList<>();
+        Class<?> aClass = o.getClass();
+        while (aClass != null) {//用while得到所有超类的字段属性
+            fieldList.addAll(Arrays.asList(aClass.getDeclaredFields()));
+            aClass = aClass.getSuperclass(); //得到父类,然后赋给自己
+        }
+        for(Field field:fieldList){
+            field.setAccessible(true);
+            //得到当前字段类型
+            String typeName = field.getType().getTypeName();
+            if("java.lang.String".equals(typeName)){
+                //得到我的生日
+                try {
+                    if(field.get(o)==null){
+                            field.set(o,"");
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+
+//    public static void main(String[]args){
+//        Test2StringEntity t=new Test2StringEntity();
+//        p.p(t);
+//        p.strNullToSpace(t);
+//        p.p(t);
+//    }
+
+
 
     /**
      *空变null
@@ -3118,11 +3158,11 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return null;
         }
     }
-    public static void main(String[]args){
-        p.p("-------------------------------------------------------");
-        p.p(p.beql(p.b(2),p.b(2)));
-        p.p("-------------------------------------------------------");
-    }
+//    public static void main(String[]args){
+//        p.p("-------------------------------------------------------");
+//        p.p(p.beql(p.b(2),p.b(2)));
+//        p.p("-------------------------------------------------------");
+//    }
 
 
     /**
