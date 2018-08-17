@@ -147,6 +147,14 @@ public interface pI {
 			,"java.math.BigDecimal","BigDecimal","byte","java.lang.Byte","char"
 			,"boolean","java.lang.Boolean"});
 
+	//随机码源
+	//路径中能出现+和-和@和¥和$和~和()和!和,和.
+	//长度63
+	 List<String>sjOrg=Arrays.asList
+			("+","-","@","¥","$","~","(",")","!",",",".",
+					"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+			       ,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
      String intType="int";
      String IntegerType="java.lang.Integer";
      String doubleType="double";

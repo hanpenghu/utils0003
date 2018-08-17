@@ -32,7 +32,10 @@ public strictfp class p implements pI{
 //    }
 
 
-
+//    public static void main(String[]args){
+//            p.p(sjOrg.size());
+//
+//    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
@@ -626,9 +629,33 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+    /**
+     下面集合有63个
+
+     List<String>sjOrg=Arrays.asList
+     ("+","-","@","¥","$","~","(",")","!",",",".",
+     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+     ,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
+     里面随机取出一个
+     * */
+
+    public static String sjOrg(){
+       return sjOrg.get(p.randomDigit(0,62));
+    }
+
+
+
 
     /*【群主】变色龙 2018-04-08 15:52:41
     一般 秒级 + 3位随机数*/
+
+//    public static void main(String[]args){
+//        for(int i=0;i<1000;i++){
+//            p.p(sjOrg());
+//        }
+//
+//    }
 
 
     /**
@@ -665,7 +692,9 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     public static String strARandom(){
         String str = "";
         for (int i = 0;i<1;i++){
-            str = str+ (char)(Math.random()*26+'A');
+            synchronized ("2222341212318979797") {
+                str = str+ (char)(Math.random()*26+'A');
+            }
         }
         return str;
     }
@@ -677,7 +706,9 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     public static String straRandom(){
         String str = "";
         for (int i = 0;i<1;i++){
-            str = str+ (char)(Math.random()*26+'a');
+            synchronized ("111111232213123111111") {
+                str = str+ (char)(Math.random()*26+'a');
+            }
         }
         return str;
     }
@@ -696,7 +727,10 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
 //    public static void main(String[]args){
-//        p.p(straRandom());
+//        for(int i=0;i<10;i++){
+//            p.p(s());
+//        }
+//
 //    }
 
     /**
@@ -706,13 +740,71 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
      * */
     public static String  ss(){
         String s="yy$MM+dd@HH!mm;ss#sss";
+         return new SimpleDateFormat(s).format(new Date())
+                    .replace("$", aOrARandom())
+                    .replace("+", aOrARandom())
+                    .replace("@", aOrARandom())
+                    .replace("!", aOrARandom())
+                    .replace(";", aOrARandom())
+                    .replace("#", aOrARandom());
+    }
+
+    /**
+     * 21位
+     *毫秒级,比上面的更随机     18I08E18R00D27)57Y057
+
+     List<String>sjOrg=Arrays.asList
+     ("+","-","@","¥","$","~","(",")","!",",",".",
+     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+     ,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+
+     *
+     * */
+    public static String  ssOrg(){
+        String s="yy$MM+dd@HH!mm;ss#sss";
         return new SimpleDateFormat(s).format(new Date())
-                .replace("$",aOrARandom())
-                .replace("+",aOrARandom())
-                .replace("@",aOrARandom())
-                .replace("!",aOrARandom())
-                .replace(";",aOrARandom())
-                .replace("#",aOrARandom());
+                .replace("$", sjOrg())
+                .replace("+", sjOrg())
+                .replace("@", sjOrg())
+                .replace("!", sjOrg())
+                .replace(";", sjOrg())
+                .replace("#", sjOrg());
+    }
+
+//    public static void main(String[]args){
+//        List<String>list=new ArrayList<>();
+//        for(int i=0;i<10000;i++){
+//            list.add(sOrg());
+//        }
+//
+//        p.p(list.size());
+//        p.p(p.distinctList(list).size());
+//
+//    }
+
+
+
+//    public static void main(String[]args){
+//        p.p(ssOrg());
+//    }
+
+
+    /**
+     * 去掉毫秒  17位      18J08N18(00@26P57
+     List<String>sjOrg=Arrays.asList
+     ("+","-","@","¥","$","~","(",")","!",",",".",
+     "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"
+     ,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+     下面更随机
+     * */
+    public static String  sOrg(){
+        String s="yy$MM+dd@HH!mm;ss";
+        return new SimpleDateFormat(s).format(new Date())
+                .replace("$",sjOrg())
+                .replace("+",sjOrg())
+                .replace("@",sjOrg())
+                .replace("!",sjOrg())
+                .replace(";",sjOrg());
     }
 
 
