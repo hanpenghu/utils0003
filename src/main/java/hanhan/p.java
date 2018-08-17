@@ -657,6 +657,80 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         return s;
     }
 
+    /**
+     *生成0到999之间的随机数,顺序循环,spring容器启动后顺序循环
+     * */
+    private static int orderRandom=0;
+    public synchronized static  int orderRandom999(){
+        int i=0;
+        i=orderRandom;
+        orderRandom=orderRandom+1;
+        if(orderRandom>=1000)orderRandom=0;
+        return i;
+    }
+
+//    public static String  r(){
+//
+//    }
+//
+    /**
+     *随机冒号变分号23位,冒号做文件名字在路径里不行,分号也不行
+     *2018-08-17@16-46-06.006
+     * */
+    public static String r(){
+        return new SimpleDateFormat("yyyy-MM-dd@HH-mm-ss.sss").format(new Date());
+    }
+
+//    public static void main(String[]args){
+//            System.out.println(r());
+//    }
+
+    /**
+     *
+     * 2018-08-17@16-44-34.034@826
+     * */
+    public static String ra3(){
+        return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.sss").format(new Date()).replace(":","-").replace(" ","@")+"@"+String.valueOf(p.random0_999());
+    }
+
+    /**
+     *最后3位是容器循环随机
+     * 2018-08-17@16-38-31.031@0
+     * */
+    public static String ra3o(){
+        return new SimpleDateFormat("yyyy-MM-dd@HH-mm-ss.sss").format(new Date())+"@"+String.valueOf(p.orderRandom999());
+    }
+
+    /**
+     *无20头
+     *18-08-17@16-40-07.007
+     * */
+    public static String raNoH(){
+        return new SimpleDateFormat("yy-MM-dd@HH-mm-ss.sss").format(new Date());
+    }
+
+    /**
+     *无20头加三位随机
+     * 18-08-17@16-41-35.035@403
+     * */
+    public static String raNoH3(){
+        return new SimpleDateFormat("yy-MM-dd@HH-mm-ss.sss").format(new Date())+"@"+String.valueOf(p.random0_999());
+    }
+
+    /**
+     *最后三位是容器循环随机(在容器 中运行的时候才会随机)
+     * 18-08-17@16-43-09.009@0
+     * */
+    public static String rfNoH3o(){
+        return new SimpleDateFormat("yy-MM-dd@HH-mm-ss.sss").format(new Date())+"@"+String.valueOf(p.orderRandom999());
+    }
+
+//    public static void main(String[]args){
+//        p.p(rfNoH3o());
+//    }
+//    public static void main(String[]args){
+//        System.out.println(rfNoH3o());
+//    }
 
 
 //    public static void main(String[]args){
@@ -759,16 +833,16 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
      * 这种:  毫秒级时间+"-"+ 0到999的随机数
      *23位到 25位
      *
-     *18-04-08-17:25:23.646-670
+     *18-08-17 13:31:53.368 654
      *
      * */
     public static String  timeAndRandom0_999NoHead_(){
 
-        return p.timeAndRandom0_999NoHead().replace(" ","-");
+        return p.timeAndRandom0_999NoHead();
     }
 //    public static void main(String[]args){
 //        p.p("-------------------------------------------------------");
-//        p.p(timeAndRandom0_999NoHead_1());
+//        p.p(timeAndRandom0_999NoHead());
 //        p.p("-------------------------------------------------------");
 //    }
 
@@ -776,13 +850,16 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
      * 推荐3给傻逼项目
      *下面这种23到25位是上面的变形版
      * ,主要是用于文件名的时候冒号不行的改进
-     * 18-04-09-12_03_56.108-347
+     * 18-08-17 13_30_54_997 284
      * 这种
      * */
     public static String  timeAndRandom0_999NoHead_1(){
 
-        return p.timeAndRandom0_999NoHead_().replace(":","_");
+        return p.timeAndRandom0_999NoHead_().replace(":","_").replace(".","_");
     }
+
+
+
 
 
     /**
