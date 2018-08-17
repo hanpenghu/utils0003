@@ -657,6 +657,93 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         return s;
     }
 
+
+    /**
+     *大写英文字母随机
+     * */
+
+    public static String strARandom(){
+        String str = "";
+        for (int i = 0;i<1;i++){
+            str = str+ (char)(Math.random()*26+'A');
+        }
+        return str;
+    }
+
+    /**
+     *小写英文字母随机
+     * */
+
+    public static String straRandom(){
+        String str = "";
+        for (int i = 0;i<1;i++){
+            str = str+ (char)(Math.random()*26+'a');
+        }
+        return str;
+    }
+
+    /**
+     * 根据时间奇偶数决定26字母
+     *大小写随机
+     * */
+
+    public static String aOrARandom(){
+        long timeStamp = p.getTimeStamp();
+        if(timeStamp%2==0){
+            return straRandom();
+        }
+        return strARandom();
+    }
+
+//    public static void main(String[]args){
+//        p.p(straRandom());
+//    }
+
+    /**
+     * 带毫秒
+     *带字母带时间的随机,非常随机 21位
+     * 18b08I17z17L20v40J040
+     * */
+    public static String  ss(){
+        String s="yy$MM+dd@HH!mm;ss#sss";
+        return new SimpleDateFormat(s).format(new Date())
+                .replace("$",aOrARandom())
+                .replace("+",aOrARandom())
+                .replace("@",aOrARandom())
+                .replace("!",aOrARandom())
+                .replace(";",aOrARandom())
+                .replace("#",aOrARandom());
+    }
+
+
+    /**
+     * 去掉毫秒
+     *带字母带时间的随机,非常随机 17位
+     * 18Q08c17g17x36w14
+     * */
+    public static String  s(){
+        String s="yy$MM+dd@HH!mm;ss";
+        return new SimpleDateFormat(s).format(new Date())
+                .replace("$",aOrARandom())
+                .replace("+",aOrARandom())
+                .replace("@",aOrARandom())
+                .replace("!",aOrARandom())
+                .replace(";",aOrARandom());
+    }
+
+//    public static void main(String[]args){
+//        for(int i=0;i<10;i++){
+//            p.p(s());
+//        }
+//
+//    }
+
+
+
+
+
+
+
     /**
      *生成0到999之间的随机数,顺序循环,spring容器启动后顺序循环
      * */
