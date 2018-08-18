@@ -140,12 +140,12 @@ public interface pI {
 
      //注意 Boolean类型的json化后是true或者false处理
 	List<String> canBeJsonTypes
-			= Arrays.asList(new String[]{"int","java.lang.Integer",
+			= Arrays.asList("int","java.lang.Integer",
 			"double","java.lang.Double",
 			"float","java.lang.Float","java.lang.Long"
 			,"long","java.lang.Short","short","java.lang.String","String"
 			,"java.math.BigDecimal","BigDecimal","byte","java.lang.Byte","char"
-			,"boolean","java.lang.Boolean"});
+			,"boolean","java.lang.Boolean");
 
 	//随机码源
 	//路径中能出现+和-和@和¥和$和~和()和!和,和.
