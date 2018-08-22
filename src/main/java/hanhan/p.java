@@ -1530,6 +1530,90 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 
 
 
+
+
+    /**
+     * 反射拿到所有的字段和字段类型并 暴力反射, 并有方法 setOMyGetVal 可以给字段设置值
+     *
+     * 注意:field.getType().getTypeName()是
+     * java.lang.String  这种
+     * */
+    public static List<p.FieldContent> getField(Object o){
+        List<Field> fs=new ArrayList<>();
+        Class<?> c = o.getClass();
+        while (c != null) {//用while得到所有超类的字段属性
+            fs.addAll(Arrays.asList(c.getDeclaredFields()));
+            c = c.getSuperclass(); //得到父类,然后赋给自己
+        }
+        List<p.FieldContent>lfc=new LinkedList<p.FieldContent>();
+        for(Field f:fs){
+            FieldContent fc=new p.FieldContent();
+            f.setAccessible(true);
+            //得到当前字段类型
+            fc.setField(f);
+            fc.setFieldName(f.getName());
+            fc.setFieldType(f.getType().getTypeName());
+            fc.setoMy(o);
+            lfc.add(fc);
+        }
+        return lfc;
+    }
+    public static class FieldContent{
+        //字段名字,比如 public String fieldName;中的fieldName就是字段名字
+         private String fieldName;
+         //字段类型,比如 java.lang.String
+         private String fieldType;
+         //字段的对象
+         private  Field field;
+         //字段本身所在的对象
+         private Object oMy;
+
+
+
+        public Object getoMy() {
+            return oMy;
+        }
+
+        //外部引用该方法来给字段设置值
+        public void setOMyGetVal(Object fieldValue) throws IllegalAccessException {
+            field.setAccessible(true);
+            field.set(oMy,fieldValue);
+        }
+
+        //只给p类内部用
+        private void setoMy(Object oMy) {
+            this.oMy = oMy;
+        }
+
+        public String getFieldName() {
+            return fieldName;
+        }
+
+        public void setFieldName(String fieldName) {
+            this.fieldName = fieldName;
+        }
+
+        public String getFieldType() {
+            return fieldType;
+        }
+
+        public void setFieldType(String fieldType) {
+            this.fieldType = fieldType;
+        }
+
+        public Field getField() {
+            return field;
+        }
+
+        public void setField(Field field) {
+            this.field = field;
+        }
+
+
+    }
+
+
+
     /**
      *空变null
      * */
