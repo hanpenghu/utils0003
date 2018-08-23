@@ -3468,22 +3468,22 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * BigDecimal
      *前面比后面大
      * */
-    public static Boolean bbig(Object o1,Object o2){
+    public static boolean bbig(Object o1,Object o2){
         if(p.notEmpty(o1)&&p.notEmpty(o2)&&p.isBd(o1)&&p.isBd(o2) ){
             return p.b(o1).compareTo(p.b(o2))==1;
         }else{
-            return null;
+            return false;
         }
     }
     /**
      * BigDecimal
      *前面比后面小
      * */
-    public static Boolean bsml(Object o1,Object o2){
+    public static boolean bsml(Object o1,Object o2){
         if(p.notEmpty(o1)&&p.notEmpty(o2)&&p.isBd(o1)&&p.isBd(o2) ){
             return p.b(o1).compareTo(p.b(o2))==-1;
         }else{
-            return null;
+            return false;
         }
     }
 
@@ -3491,11 +3491,11 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
      * BigDecimal
      *两数字相等
      * */
-    public static Boolean beql(Object o1,Object o2){
+    public static boolean beql(Object o1,Object o2){
         if(p.notEmpty(o1)&&p.notEmpty(o2)&&p.isBd(o1)&&p.isBd(o2) ){
             return p.b(o1).compareTo(p.b(o2))==0;
         }else{
-            return null;
+            return false;
         }
     }
 //    public static void main(String[]args){
