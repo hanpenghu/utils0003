@@ -3422,6 +3422,9 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+
+
     /**
      *BigDecimal相加
      * */
@@ -3614,6 +3617,7 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
     /**
+     * 是否是时间
      *是否是标准时间
      * 2017-01-09 12:23:33,333这种
      * */
@@ -3652,6 +3656,22 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return false;
         }
     }
+
+    /**
+     *是否是标准时间
+     * */
+    public static boolean isDate(String s){
+        boolean bzSj = isBzSj(s);
+        boolean bzSj2 = isBzSj2(s);
+        boolean bzSj3 = isBzSj3(s);
+        if(bzSj||bzSj2||bzSj3){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 //    public static void main(String[]args) throws ParseException {
 //        p.p("-------------------------------------------------------");
 //        p.p(isBzSj3("2017-13-12 12:23:44"));
