@@ -92,6 +92,103 @@ public strictfp class p implements pI{
     }
 
 
+
+
+//    public static void main(String[]args){
+//        List<String> list = new linklistT<String>().a("1").a("2").a("3").a("4").a("5").a("6").a("7").g();
+////        list = new linklistT<String>().a("1").a("2").a("3").a("4").a("5").a("6").g();
+//        p.p("-------------------------------------------------------");
+//        p.p(avgList0(list,2));
+//        p.p("-------------------------------------------------------");
+//    }
+
+
+
+    /**
+     *sourceList是要拆解的list
+     * oneListHowMany是拆解后一个list放入多少个元素的意思
+     * oneListHowMany  就是 拆分后每个list  分几个元素的意思
+     * sourceList  要被拆解的list
+     * */
+    public static <T> List<List<T>> avglist(List<T> sourceList,int oneListHowMany){
+        if(oneListHowMany<=0)oneListHowMany=1;
+        //避免影响原来的sourceList
+        List<List<T>>all=new LinkedList<List<T>>();
+        if(p.notEmpty(sourceList)){
+            List<T> sourceList1=new LinkedList<T>(sourceList);
+            if(sourceList1.size()>oneListHowMany){
+                int size = sourceList1.size();
+                if(size%oneListHowMany==0){
+                    p.canAvg(all,size,oneListHowMany,sourceList1);
+                }else{
+                   int w= size%oneListHowMany;
+                   List<T>list0=new LinkedList<T>();
+                    for(int i=0;i<w;i++){list0.add(sourceList1.get(i));}
+                    all.add(list0);
+                    for(int h=0;h<w;h++){sourceList1.remove(0);}
+                    //重新得到size
+                    size = sourceList1.size();
+                    p.canAvg(all,size,oneListHowMany,sourceList1);
+                }
+            }else{
+                all.add(sourceList1);
+            }
+        }
+        return all;
+    }
+
+    private static <T> void canAvg(List<List<T>> all, int size, int oneListHowMany, List<T> sourceList) {
+        for(int i=0;i<size/oneListHowMany;i++){
+            List<T>list=new LinkedList<T>();
+            for(int j=0;j<oneListHowMany;j++){
+                list.add(sourceList.get(j));
+            }
+            all.add(list);
+            for(int h=0;h<oneListHowMany;h++){
+                sourceList.remove(0);
+            }
+        }
+    }
+
+
+
+
+
+
+//    @SuppressWarnings("unchecked")
+//    public static void main(String[]args){
+//       List<String> list = new linklistT<String>().a("1").a("2").a("3").a("4").a("5").a("6").a("7").g();
+////            p.p("-------------------------------------------------------");
+////            p.p(list.subList(0,6));
+////            p.p("-------------------------------------------------------");
+//            List<List<String>> avglist1 = avglist(list,2);
+//            p.p("-------------------------------------------------------");
+//            p.p(avglist1);
+//            p.p("-------------------------------------------------------");
+//        }
+
+
+
+
+
+
+
+
+
+//    @SuppressWarnings("unchecked")
+//    public static void main(String[]args){
+//       List<String> list=new linklistT<String>().a("1").a("2").a("3").a("4").a("5").g();
+//        for(int i=0;i<3;i++){
+//            list.remove(0);
+//        }
+//        p.p("-------------------------------------------------------");
+//        p.p(list);
+//        p.p("-------------------------------------------------------");
+//        //结果 ：    [4, 5]
+//    }
+
+
+
 //    public static void main(String[]args){
 //        List<String> g = new linklistT<String>().a("1")
 //                .a("2")
