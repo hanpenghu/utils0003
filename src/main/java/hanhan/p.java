@@ -3768,7 +3768,9 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
-
+    public static boolean isNotDate(String s){
+        return !p.isDate(s);
+    }
 //    public static void main(String[]args) throws ParseException {
 //        p.p("-------------------------------------------------------");
 //        p.p(isBzSj3("2017-13-12 12:23:44"));
