@@ -2629,6 +2629,26 @@ public static boolean isFirstDateBig(String firstStr,String  secondStr){
      ****************************************************************************************
      * */
 
+
+    /**
+     *将  yyyy-MM-dd这种字符串变成时间戳
+     * */
+    public String getSjc(String strSj){
+        if(p.empty(strSj)){
+            return null;
+        }else{
+            try {
+                //yyyy-MM-dd注意:写成yyyy-MM-dd hh:mm:ss.sss就会过于严格
+                Date d=new SimpleDateFormat("yyyy-MM-dd").parse(strSj);
+                strSj=String.valueOf(d.getTime());
+            } catch (ParseException e) {
+                return null;
+            }
+        }
+        return strSj;
+    }
+
+
     /**
      *时间戳转换成Date
      * */
@@ -3649,6 +3669,26 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             return false;
         }
     }
+
+    //判断浮点数（double和float）
+    public static boolean isDuble(String str) {
+        if (null == str || "".equals(str)) {
+            return false;
+        }
+        Pattern pattern = Pattern.compile("^[-\\+]?[.\\d]*$");
+        return pattern.matcher(str).matches();
+    }
+
+
+//    public static void main(String[]args){
+//            System.out.println(isDuble("123.1231213123123123123122312312321"));
+//            //会缩减长度
+//            System.out.println(Double.valueOf("123.1231213123123123123122312312321"));
+//            //不会缩减长度
+//            System.out.println(new BigDecimal("123.1231213123123123123122312312321"));
+//    }
+
+
 
     /**
      *是否是BigDecimal
