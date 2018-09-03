@@ -3324,6 +3324,24 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
             }
         }
     }
+
+    /**
+     *创建一个文件, 不存在再创建
+     * */
+
+    public static File createNewFile(String filePath) throws IOException {
+        File f=new File(filePath);
+        if(!f.exists()){
+            f.createNewFile();
+        }
+        //如果创造过之后还不存在,就返回null
+        if(!f.exists()){
+            f=null;
+        }
+        return f;
+    }
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      *是否是email
