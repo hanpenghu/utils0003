@@ -1,6 +1,11 @@
 package hanhan;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 
 import java.io.*;
 
@@ -52,7 +57,19 @@ public class pp {
         }
     }
 
+    /**
+     *直接返回给浏览器一个打不开只能下载的file
+     * */
 
+    public static ResponseEntity<byte[]> returnBrowserFileToDownLoad(File file) throws IOException {
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentDispositionFormData("attachment", new String(file.getName().getBytes("UTF-8"), "iso-8859-1"));
+        //application/octet-stream ： 二进制流数据（最常见的文件下载）。
+        headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+        return new ResponseEntity<>(FileUtils.readFileToByteArray(file), headers, HttpStatus.CREATED);
+
+    }
 
 
 }
