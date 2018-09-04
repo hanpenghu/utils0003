@@ -66,6 +66,7 @@ public strictfp class p implements pI{
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
+     * 跟下面3个不一样,这个是n等分list,下面3中算法是把一个list拆成未知的若干份,每份的元素个数输入到函数
      * 将一个list均分成n个list,主要通过偏移量来实现的
      * @param source
      * @return
@@ -103,7 +104,7 @@ public strictfp class p implements pI{
 //    }
 
 
-    /**
+    /**把一个list拆成未知的若干份,每份的元素个数输入到函数
      * 高效率
      *用subList把原来的list分成至多有  mostCountInOneSubList个数元素的集合
      * mostCountInOneSubList是每个list里尽量并且至多能存的个数,
@@ -155,7 +156,7 @@ public strictfp class p implements pI{
 //    }
 
 
-    /**
+    /**把一个list拆成未知的若干份,每份的元素个数输入到函数
      *高效率
      * 把list拆分成若干个子list(每个有toIndex个元素)  功能跟上面一个一模一样
      * toIndex是  将来子list里面的个数
@@ -180,7 +181,7 @@ public strictfp class p implements pI{
 
 
 
-    /**
+    /**把一个list拆成未知的若干份,每份的元素个数输入到函数
      * 低效率
      *sourceList是要拆解的list
      * oneListHowMany是拆解后一个list放入多少个元素的意思
