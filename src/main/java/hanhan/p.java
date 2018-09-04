@@ -123,11 +123,11 @@ public strictfp class p implements pI{
             int shang=totalListSize / mostCountInOneSubList;
             //先把整除的放进去
             List<List<T>> lists = new LinkedList<List<T>>();
-            //用于计算余数最后的subList的k起始值
+            //用于计算余数最后的subList的起始值k
             int k=0;
             for(int i=0;i<shang;i++){
                 lists.add(sourceList.subList(i * mostCountInOneSubList, (i + 1) * mostCountInOneSubList));
-                if(i==shang-1){
+                if(i==shang-1){//如果是最后一次,就得到k
                     k=(i + 1) * mostCountInOneSubList;
                 }
             }
