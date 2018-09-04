@@ -103,8 +103,85 @@ public strictfp class p implements pI{
 //    }
 
 
+    /**
+     * 高效率
+     *用subList把原来的list分成至多有  mostCountInOneSubList个数元素的集合
+     * mostCountInOneSubList是每个list里尽量并且至多能存的个数,
+     * mostCountInOneSubList是分完后每个list里存的平均个数,
+     * 当然,不能整除的时候最后一个放入的余数小于mostCountInOneSubList
+     * */
+
+    public static <T>List<List<T>> avgSubList(List<T>sourceList,int mostCountInOneSubList){
+        if(null==sourceList){
+            return null;
+        }else{
+            int totalListSize = sourceList.size();
+            //能不能整除都按不能整除算, 整除的时候会多加一个空集合,判空一下不add就行了
+            //余数
+            int yuShu = totalListSize % mostCountInOneSubList;
+            //商
+            int shang=totalListSize / mostCountInOneSubList;
+            //先把整除的放进去
+            List<List<T>> lists = new LinkedList<List<T>>();
+            //用于计算余数最后的subList的k起始值
+            int k=0;
+            for(int i=0;i<shang;i++){
+                lists.add(sourceList.subList(i * mostCountInOneSubList, (i + 1) * mostCountInOneSubList));
+                if(i==shang-1){
+                    k=(i + 1) * mostCountInOneSubList;
+                }
+            }
+            if(yuShu!=0){
+                lists.add(sourceList.subList(k, k + yuShu));
+            }
+            return lists;
+        }
+    }
+
+
+//        public static void main(String[]args){
+//            List<Integer>list=new ArrayList<Integer>();
+////            list.add(1);
+////            list.add(2);
+////            list.add(3);
+////            list.add(4);
+////            list.add(5);
+////            list.add(6);
+////            list.add(7);
+////            list.add(8);
+////            list.add(9);
+//            p.p(subList(null,3));
+//
+//    }
+
 
     /**
+     *高效率
+     * 把list拆分成若干个子list(每个有toIndex个元素)  功能跟上面一个一模一样
+     * toIndex是  将来子list里面的个数
+     * 网友  鬼鬼-java1级冲锋衣
+     * 静静的群里  写的
+     * */
+    public static List subList(List list,int toIndex){
+        if(null==list){return null;}
+        int listSize = list.size();
+        List subList = new LinkedList();
+        for (int i = 0; i < list.size(); i += toIndex) {
+            if (i + toIndex > listSize) {
+                toIndex = listSize - i;
+            }
+            List newList = list.subList(i, i + toIndex);
+            subList.add(newList);
+        }
+        return subList;
+    }
+
+
+
+
+
+    /**
+     * 低效率
      *sourceList是要拆解的list
      * oneListHowMany是拆解后一个list放入多少个元素的意思
      * oneListHowMany  就是 拆分后每个list  分几个元素的意思
