@@ -2558,6 +2558,55 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
      ****************************************************************************************
      * */
 
+
+    /**
+     *小于1971年,
+     * 一般用于判断是否是1970-01-01 08:00:00.000
+     * */
+    public static boolean isSmallThan1971(Date date){
+        if(date==null){
+            return false;
+        }else{
+            if((date.getTime())<(p.tod("1971-01-01 08:00:00.000").getTime())){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
+
+
+    public static boolean isBiggerThan1971(Date date){
+        return !isSmallThan1971(date);
+    }
+
+
+    /**
+     *用于判断是否是unix元年
+     * 其中  这种判断
+     * 1970-01-01 08:00:00.000是等于1970-01-01这种的
+     * */
+    public static boolean eqUnixOriTime(Date date){
+        if(tod(unixTimeOri).equals(date)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public static boolean notEqUnixOriTime(Date date){
+       return !eqUnixOriTime(date);
+    }
+
+
+    public static void main(String[]args){
+            p(notEqUnixOriTime(p.tod("1970-01-01")));
+    }
+
+
+
+
+
     /**
      *小于等于我的生日,精确到日,因为我的生日只能精确到日,这玩意可以用来处理1970和1899的判断
      * */
