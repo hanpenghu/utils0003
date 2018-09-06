@@ -6,7 +6,14 @@ import java.util.List;
 public interface pI {
 	//格林威治 北京市区
 	 String bjTimezone="GMT+8";
-	 //unix元年
+
+
+	 //unix元年 格林威治
+	String unixTimeOriGMT="1970-01-01 00:00:00.000";
+
+	//unix元年 中国
+	String unixTimeOriCh="1970-01-01 08:00:00.000";
+	 //unix元年 中国//兼容老数据
 	String unixTimeOri="1970-01-01 08:00:00.000";
      String[] hexDigits = { "0", "1", "2", "3", "4", "5",
             "6", "7", "8", "9", "a", "b", "c", "d", "e", "f" };//md5用
