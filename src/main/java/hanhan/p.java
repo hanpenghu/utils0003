@@ -2501,6 +2501,10 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 
 
 
+    /**
+     *设置所有格式试一遍的时间
+     * 只有-和/两种的格式都试了一遍
+     * */
     public static Date todAll(String strDate) {
         if(strDate==null){
             return null;
