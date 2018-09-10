@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper>
+    <resultMap id="BaseResultMap1"
+               extends="com.hanhan.utils0002.dao.dao1.PrdtMapper" type="com.hanhan.utils0002.entity.Prdt"/>
+
+
+
+
+    <update id="fuck1">
+        UPDATE
+    </update>
+
+
+
+
+
+
+
+
+
+    </mapper>

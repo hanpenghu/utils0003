@@ -2498,6 +2498,43 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
             return null;
         }
     }
+
+
+
+    public static Date todAll(String strDate) {
+        if(strDate==null){
+            return null;
+        }
+        try {
+            return new SimpleDateFormat(d16).parse(strDate);
+        } catch (ParseException e) {
+            try {
+                return  new SimpleDateFormat(d1).parse(strDate);
+            } catch (ParseException e1) {
+                try {
+                    return  new SimpleDateFormat(d2).parse(strDate);
+                } catch (ParseException e2) {
+                    try {
+                        return  new SimpleDateFormat(d3).parse(strDate);
+                    } catch (ParseException e3) {
+                        try {
+                            return  new SimpleDateFormat("yyyy/MM/dd HH:mm:ss.SSS").parse(strDate);
+                        } catch (ParseException e4) {
+                            try {
+                                return  new SimpleDateFormat(d5).parse(strDate);
+                            } catch (ParseException e5) {
+                                try {
+                                    return  new SimpleDateFormat(d6).parse(strDate);
+                                } catch (ParseException e6) {
+                                    return null;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
     /**
      *yyyy-MM-dd转换成默认日期的
      * */
