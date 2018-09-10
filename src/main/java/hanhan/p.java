@@ -2539,6 +2539,36 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
             }
         }
     }
+
+
+
+
+    /**
+     *将excel里面的距离1900/1/1的时间转为
+     * unix标准时间,
+     * excelDayNumStr就是excel里的时间 比如  43333  就是距离 1900-01-01   43333天的时间
+     * */
+    public static Date excelData2Date(String excelDayNumStr) throws ParseException {
+        try {
+            //得到excel起始值计算的毫秒数
+            long time = new SimpleDateFormat(d16).parse("1900-1-1 00:00:00.000").getTime();
+            //得到excel中的毫秒数
+            BigDecimal b = p.b(excelDayNumStr).multiply(p.b(24)).multiply(p.b(3600)).multiply(p.b(1000));
+            BigDecimal add = b.add(b(time)).subtract(p.b(2*24*3600*1000));//不知道为啥多了2天,后面减掉2天
+            if(String.valueOf(add).contains(".")){
+                return  new Date(new Long(String.valueOf(add).substring(0,String.valueOf(add).indexOf("."))));
+            }else{
+                return  new Date(new Long(String.valueOf(add)));
+            }
+
+        } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     /**
      *yyyy-MM-dd转换成默认日期的
      * */
