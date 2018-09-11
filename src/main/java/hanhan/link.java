@@ -26,11 +26,11 @@ public  class link<T>{
 
 
 
-    public static void main(String[]args){
-        List<String> g = link.b().a("1").a("2").g();
-        System.out.println(g);
-
-    }
+//    public static void main(String[]args){
+//        List<String> g = link.b().a("1").a("2").g();
+//        System.out.println(g);
+//
+//    }
 
 
 
