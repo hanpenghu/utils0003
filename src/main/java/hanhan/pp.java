@@ -14,14 +14,7 @@ import java.io.*;
  * */
 public class pp {
 
-
-    /**
-     *封装log4j的得到实例
-     * */
-    public static org.apache.log4j.Logger getLogger(Object o){
-        return org.apache.log4j.LogManager.getLogger(o.getClass().getName());
-    }
-
+private org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(this.getClass());
 
     /**
      *封装apahce包的sha1加密
