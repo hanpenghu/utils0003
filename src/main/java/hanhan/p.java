@@ -106,9 +106,9 @@ public strictfp class p implements pI{
             s=s.replace("<","_xiaoYuHao_");
         } if(s.contains(">")){
             s=s.replace(">","_daYuHao_");
-        } if(s.contains(".")){
+        } /*if(s.contains(".")){
             s=s.replace(".","_juHao_");
-        } if(s.contains("{")){
+        } */if(s.contains("{")){
             s=s.replace("{","_zuoDaKuoHao_");
         } if(s.contains("}")){
             s=s.replace("}","_youDaKuoHao_");
