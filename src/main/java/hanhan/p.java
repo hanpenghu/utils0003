@@ -37,6 +37,85 @@ public strictfp class p implements pI{
 //
 //    }
 
+
+
+//    public static void main(String[]args){
+//            p.p(urlSpecialSignReplace("dsf!a;%d\"d'f"));
+//    }
+
+
+    // "%","[","]",";","!","&","|","=","/","\\","@","\"","^","(",")","+","?","#"
+    public static String urlSpecialSignReplace(String s){
+        if(p.empty(s)){return s;}
+        if(s.contains("%")){
+            s=s.replace("%","_baiFenHao_");
+        }if(s.contains("[")){
+            s=s.replace("[","_zuoZhongKuoHao_");
+        }if(s.contains("]")){
+            s=s.replace("]","_youZhongKuoHao_");
+        }if(s.contains(";")){
+            s=s.replace(";","_fenHao_");
+        } if(s.contains("!")){
+            s=s.replace("!","_ganTanHao_");
+        } if(s.contains("&")){
+            s=s.replace("&","_quDiZhiFuHao_");
+        } if(s.contains("|")){
+            s=s.replace("|","_luoJiHuo_");
+        } if(s.contains("=")){
+            s=s.replace("=","_dengYuHao_");
+        } if(s.contains("/")){
+            s=s.replace("/","_xieGang_");
+        } if(s.contains("\\")){
+            s=s.replace("\\","_fanXieGang_");
+        } if(s.contains("@")){
+            s=s.replace("@","_aiTaFuHao_");
+        } if(s.contains("^")){
+            s=s.replace("^","_ciFangFuHao_");
+        } if(s.contains("\"")){
+            s=s.replace("\"","_shuangYinHao_");
+        } if(s.contains("(")){
+            s=s.replace("(","_zuoXiaoKuoHao_");
+        } if(s.contains(")")){
+            s=s.replace(")","_youXiaoKuoHao_");
+        } if(s.contains("+")){
+            s=s.replace("+","_jiaHao_");
+        } if(s.contains("?")){
+            s=s.replace("?","_wenHao_");
+        } if(s.contains("#")){
+            s=s.replace("#","_jingHao_");
+        } if(s.contains("$")){
+            s=s.replace("$","_meiYuanFuHao_");
+        } if(s.contains("¥")){
+            s=s.replace("¥","_RMBFuHao_");
+        } if(s.contains("~")){
+            s=s.replace("~","_wanZhiHao_");
+        } if(s.contains("·")){
+            s=s.replace("·","_zhongDianHao_");
+        } if(s.contains("*")){
+            s=s.replace("*","_xingHao_");
+        } if(s.contains("-")){
+            s=s.replace("-","_jianHao_");
+        } if(s.contains(",")){
+            s=s.replace(",","_douHao_");
+        } if(s.contains(":")){
+            s=s.replace(":","_maoHao_");
+        } if(s.contains("<")){
+            s=s.replace("<","_xiaoYuHao_");
+        } if(s.contains(">")){
+            s=s.replace(">","_daYuHao_");
+        } if(s.contains(".")){
+            s=s.replace(".","_juHao_");
+        } if(s.contains("{")){
+            s=s.replace("{","_zuoDaKuoHao_");
+        } if(s.contains("}")){
+            s=s.replace("}","_youDaKuoHao_");
+        } if(s.contains("'")){
+            s=s.replace("'","_danYinHao_");
+        }
+        return s;
+    }
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     /**
      *分页数量
@@ -2670,9 +2749,9 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
     }
 
 
-    public static void main(String[]args){
-            p(notEqUnixOriTime(p.tod("1970-01-01")));
-    }
+//    public static void main(String[]args){
+//            p(notEqUnixOriTime(p.tod("1970-01-01")));
+//    }
 
 
 
