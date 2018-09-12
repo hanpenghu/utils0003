@@ -45,7 +45,7 @@ public strictfp class p implements pI{
 
 
     /**
-     *替换掉路径中的特殊字符和中文
+     *替换掉文件名中的特殊字符和中文
      * */
     // "%","[","]",";","!","&","|","=","/","\\","@","\"","^","(",")","+","?","#"
     public static String urlSpecialSignReplace(String s){
