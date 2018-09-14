@@ -120,6 +120,86 @@ public strictfp class p implements pI{
         return s;
     }
 
+    /**
+     *替换特殊字符但是不替换中文
+     * */
+    public static String urlSpecialSignReplaceOverCh(String s){
+        if(p.empty(s)){return s;}
+        if(s.contains("%")){
+            s=s.replace("%","_baiFenHao_");
+        }if(s.contains("[")){
+            s=s.replace("[","_zuoZhongKuoHao_");
+        }if(s.contains("]")){
+            s=s.replace("]","_youZhongKuoHao_");
+        }if(s.contains(";")){
+            s=s.replace(";","_fenHao_");
+        } if(s.contains("!")){
+            s=s.replace("!","_ganTanHao_");
+        } if(s.contains("&")){
+            s=s.replace("&","_quDiZhiFuHao_");
+        } if(s.contains("|")){
+            s=s.replace("|","_luoJiHuo_");
+        } if(s.contains("=")){
+            s=s.replace("=","_dengYuHao_");
+        } if(s.contains("/")){
+            s=s.replace("/","_xieGang_");
+        } if(s.contains("\\")){
+            s=s.replace("\\","_fanXieGang_");
+        } if(s.contains("@")){
+            s=s.replace("@","_aiTaFuHao_");
+        } if(s.contains("^")){
+            s=s.replace("^","_ciFangFuHao_");
+        } if(s.contains("\"")){
+            s=s.replace("\"","_shuangYinHao_");
+        } if(s.contains("(")){
+            s=s.replace("(","_zuoXiaoKuoHao_");
+        } if(s.contains(")")){
+            s=s.replace(")","_youXiaoKuoHao_");
+        } if(s.contains("+")){
+            s=s.replace("+","_jiaHao_");
+        } if(s.contains("?")){
+            s=s.replace("?","_wenHao_");
+        } if(s.contains("#")){
+            s=s.replace("#","_jingHao_");
+        } if(s.contains("$")){
+            s=s.replace("$","_meiYuanFuHao_");
+        } if(s.contains("¥")){
+            s=s.replace("¥","_RMBFuHao_");
+        } if(s.contains("~")){
+            s=s.replace("~","_wanZhiHao_");
+        } if(s.contains("·")){
+            s=s.replace("·","_zhongDianHao_");
+        } if(s.contains("*")){
+            s=s.replace("*","_xingHao_");
+        } if(s.contains("-")){
+            s=s.replace("-","_jianHao_");
+        } if(s.contains(",")){
+            s=s.replace(",","_douHao_");
+        } if(s.contains(":")){
+            s=s.replace(":","_maoHao_");
+        } if(s.contains("<")){
+            s=s.replace("<","_xiaoYuHao_");
+        } if(s.contains(">")){
+            s=s.replace(">","_daYuHao_");
+        } /*if(s.contains(".")){
+            s=s.replace(".","_juHao_");
+        } */if(s.contains("{")){
+            s=s.replace("{","_zuoDaKuoHao_");
+        } if(s.contains("}")){
+            s=s.replace("}","_youDaKuoHao_");
+        } if(s.contains("'")){
+            s=s.replace("'","_danYinHao_");
+        }/*if(p.isContainCh(s)){
+            s=p.filterCh2Fix(s);
+        }*/
+        return s;
+    }
+
+
+   /* public static void main(String[]args){
+        String s="21palksdfjlas大立科技发斯!蒂芬";
+        p.p(urlSpecialSignReplaceOverCh(s));
+    }*/
 
 
 
@@ -4390,6 +4470,82 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
 
     }
+
+    /**
+     *判断所有序列上是不是数字
+     * "123123.111"  返回false,因为这个方法是判断所有位上都是数字的
+     * "00000001000876"返回true
+     * */
+    //方法一：用JAVA自带的函数
+    public static boolean isNumericInAllSequence(String str){
+        if(null==str||"".equals(str)||str.contains(" ")||str.contains(".")){return false;}
+        for (int i = str.length();--i>=0;){
+            if (!Character.isDigit(str.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean isBigDecimal(String str){
+        if(null==str||"".equals(str)||str.contains(" ")){return false;}
+        if(str.contains(".")){
+            //开始和结尾有.是可以做小数点的
+            /*if(str.startsWith(".")||str.endsWith(".")){
+                //不应该在开头或者结束有小数点
+                return false;
+            }*/
+            //当最后一个点和最前面一个点不是一个点的时候,说明有2个点,不是数字
+            if(str.indexOf(".")!=str.lastIndexOf(".")){
+                //此时有2个或者2个以上小数点,明显不是数字
+                return false;
+            }else{
+                String strTemp = str.replace(".", "");
+                //有一个点的时候考虑去掉点后是不是全都是数字
+                for (int i = strTemp.length();--i>=0;){
+                    if (!Character.isDigit(strTemp.charAt(i))){
+                        return false;
+                    }
+                }
+            }
+        }else{
+            for (int i = str.length();--i>=0;){
+                if (!Character.isDigit(str.charAt(i))){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+
+
+
+    public static void main(String[]args){
+           p.p(p.isBigDecimal(".12312312"));
+
+           p.p(".12312312.".indexOf("9"));
+          p.p( new BigDecimal("10.000"));
+
+    }
+
+
+
+//    public static void main(String[]args){
+//        String s="123123.111";
+////        s=null;
+//        s="00000001000876";
+//        p.p(isNumericInAllSequence(s));
+//    }
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //    public static void main(String[]args){
 //        //_________________true_________________
