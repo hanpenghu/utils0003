@@ -4487,8 +4487,40 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         return true;
     }
 
+
+//    public static void main(String[]args){
+//            p.p(isBigDecimal("324234.38924-"));
+//            p.p(new BigDecimal("+12312.98"));
+//        p.p(new BigDecimal("12312.98-"));
+//    }
+
+
     public static boolean isBigDecimal(String str){
         if(null==str||"".equals(str)||str.contains(" ")){return false;}
+        if(str.contains("-")){
+            if(str.indexOf("-")!=str.lastIndexOf("-")){
+                //含有多个负号
+                return false;
+            }else if(str.indexOf("-")!=0){
+                //负号不在第一位
+                return false;
+            }
+            return  whenNoPlusOrMinus(str.replace("-",""));
+        }else if(str.contains("+")){
+            if(str.indexOf("+")!=str.lastIndexOf("+")){
+                //含有多个负号
+                return false;
+            }else if(str.indexOf("+")!=0){
+                //负号不在第一位
+                return false;
+            }
+            return  whenNoPlusOrMinus(str.replace("+",""));
+        }else{
+            return  whenNoPlusOrMinus(str);
+        }
+    }
+
+    private static boolean whenNoPlusOrMinus(String str){
         if(str.contains(".")){
             //开始和结尾有.是可以做小数点的
             /*if(str.startsWith(".")||str.endsWith(".")){
@@ -4520,15 +4552,13 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 
 
 
-
-
-    public static void main(String[]args){
-           p.p(p.isBigDecimal(".12312312"));
-
-           p.p(".12312312.".indexOf("9"));
-          p.p( new BigDecimal("10.000"));
-
-    }
+//    public static void main(String[]args){
+//           p.p(p.isBigDecimal(".12312312"));
+//
+//           p.p(".12312312.".indexOf("9"));
+//          p.p( new BigDecimal("-00010.000"));
+//
+//    }
 
 
 
