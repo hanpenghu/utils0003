@@ -1,4 +1,5 @@
 package hanhan;
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -64,5 +65,21 @@ private org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(this.getClass())
 
     }
 
+    /**
+     *封装log打印
+     * */
+
+    public static void logInfo(org.slf4j.Logger log,String logName,Object logObject){
+        try {
+            log.info("@@@@@{}: {}@@@@@",logName, JSON.toJSONString(logObject));
+        } catch (Exception e0) {
+            try {
+                log.info("@@@@@{}: {}@@@@@",logName, logObject.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error(e.getMessage(),e);
+            }
+        }
+    }
 
 }
