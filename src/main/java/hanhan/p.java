@@ -1732,6 +1732,31 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
         return p.timeAndRandom0_999NoSymbolRemoveHead().replace(" ","-");
     }
 
+
+    /**
+     *来自guns的随机,随机取length的长度的字符串
+     * 这种随机是用于hash加盐的,不能用于id随机,因为这个可能会重复
+     * */
+    public static String getRandomString(int length) {
+        //base长度36
+        String base = "abcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+
+        for(int i = 0; i < length; ++i) {
+            int number = random.nextInt(base.length());
+            sb.append(base.charAt(number));
+        }
+
+        return sb.toString();
+    }
+
+
+//    public static void main(String[]args){
+//        p.p(p.getRandomString(5));
+//    }
+
+
     /**
      *上面那种简化成下面这种
      * 180621202154373-767
