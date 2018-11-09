@@ -71,10 +71,10 @@ private org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(this.getClass())
 
     public static void logInfo(org.slf4j.Logger log,String logName,Object logObject){
         try {
-            log.info("@@@@@{}: {}@@@@@",logName, JSON.toJSONString(logObject));
+            log.info("@@@@@  {}: {}  @@@@@",logName, JSON.toJSONString(logObject));
         } catch (Exception e0) {
             try {
-                log.info("@@@@@{}: {}@@@@@",logName, logObject.toString());
+                log.info("@@@@@  {}: {}  @@@@@",logName, logObject.toString());
             } catch (Exception e) {
                 e.printStackTrace();
                 log.error(e.getMessage(),e);
