@@ -1,5 +1,6 @@
 package hanhan;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
@@ -9,13 +10,15 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *用于测试封装外部jar包的工具
  * */
 public class pp {
 
-private org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(this.getClass());
+private static final org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(pp.class);
 
     /**
      *封装apahce包的sha1加密
@@ -81,5 +84,27 @@ private org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(this.getClass())
             }
         }
     }
+
+    /**
+     *fastJson把null换成""后转换成Map实体
+     * */
+
+
+    public static Map getJsonMap(Object o){
+        Map map=new HashMap();
+        try {
+            String noNullJson = JSON.toJSONString(
+                    o, SerializerFeature.WriteNullStringAsEmpty,
+                    SerializerFeature.WriteDateUseDateFormat,
+                    SerializerFeature.WriteNonStringValueAsString
+            ).replace("null","\"\"");
+            map = JSON.parseObject(noNullJson, Map.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error(e.getMessage(),e);
+        }
+        return map;
+    }
+
 
 }
