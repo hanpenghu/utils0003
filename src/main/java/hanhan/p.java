@@ -1756,7 +1756,9 @@ public static String strCutEndNothave(String orignalStr,String endNotHave){
 //        p.p(p.getRandomString(5));
 //    }
 
-
+//    public static void main(String[]args){
+//        p.p("ecfadcde9305f8891bcfe5a1e28c253e".length());
+//    }
     /**
      *上面那种简化成下面这种
      * 180621202154373-767
