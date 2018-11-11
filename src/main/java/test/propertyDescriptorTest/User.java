@@ -1,6 +1,9 @@
 package test.propertyDescriptorTest;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 13242L;
     private String id;
     private String name;
     private int age;

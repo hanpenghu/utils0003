@@ -1,0 +1,33 @@
+{
+  "accessible": false,
+  "annotatedExceptionTypes": [],
+  "annotatedParameterTypes": [],
+  "annotatedReceiverType": {
+    "annotations": [],
+    "declaredAnnotations": [],
+    "type": "test.propertyDescriptorTest.User"
+  },
+  "annotatedReturnType": {
+    "annotations": [],
+    "declaredAnnotations": [],
+    "type": "java.lang.String"
+  },
+  "annotations": [],
+  "bridge": false,
+  "declaringClass": "test.propertyDescriptorTest.User",
+  "default": false,
+  "exceptionTypes": [],
+  "genericExceptionTypes": [],
+  "genericParameterTypes": [],
+  "genericReturnType": "java.lang.String",
+  "modifiers": 1,
+  "name": "getName",
+  "parameterAnnotations": [],
+  "parameterCount": 0,
+  "parameterTypes": [],
+  "returnType": "java.lang.String",
+  "synthetic": false,
+  "typeParameters": [],
+  "varArgs": false
+}
+

@@ -71,6 +71,15 @@
 		</dependency>
 
 
+		<!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-core</artifactId>
+			<version>4.1.19</version>
+		</dependency>
+
+
+
 		<dependency>
 			<groupId>c3p0</groupId>
 			<artifactId>c3p0</artifactId>
