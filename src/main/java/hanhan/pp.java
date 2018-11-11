@@ -106,5 +106,20 @@ private static final org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(pp.
         return map;
     }
 
+    public static void p(Object o){
+        try {
+            System.out.println(JSON.toJSONString(o));
+            return;
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error(e.getMessage(),e);
+        }
+        try {
+            System.out.println(o.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error(e.getMessage(),e);
+        }
+    }
 
 }
