@@ -169,6 +169,17 @@
 			<version>4.1.6</version>
 		</dependency>
 
+
+
+		<!-- https://mvnrepository.com/artifact/cn.hutool/hutool-core -->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-core</artifactId>
+			<version>4.1.19</version>
+		</dependency>
+
+
+
 	</dependencies>
 
 	<build>
