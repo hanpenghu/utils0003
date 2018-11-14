@@ -5896,6 +5896,30 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
+
+
+    /**
+     *收集异常堆栈信息
+     * */
+    public static String getStackTrace(Throwable throwable)
+    {
+        try {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+
+            try
+            {
+                throwable.printStackTrace(pw);
+                return sw.toString();
+            } finally
+            {
+                pw.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
