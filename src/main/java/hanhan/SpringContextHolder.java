@@ -3,12 +3,21 @@ package hanhan;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SpringContextHolder implements ApplicationContextAware {
+
     private static ApplicationContext applicationContext;
 
-    public SpringContextHolder() {
+    /**
+     * 当@Component起作用的时候通过构造函数注入
+     *applicationContext
+     * */
+    public SpringContextHolder(ApplicationContext applicationContext) {
+        this.applicationContext=applicationContext;
     }
+
 
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         applicationContext = applicationContext;
