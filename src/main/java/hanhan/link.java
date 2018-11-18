@@ -20,7 +20,7 @@ public  class link<T>{
         return this;
     }
 
-    public List g() {
+    public List <T>g() {
         return list;
     }
 

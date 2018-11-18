@@ -5,10 +5,15 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 public class HttpContext {
+    public static void main(String[]args){
+        System.out.println(getIp());
+    }
     public HttpContext() {
     }
 
