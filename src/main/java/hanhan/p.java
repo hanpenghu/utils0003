@@ -4458,6 +4458,10 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
 //        p.p(p.gp().sad(p.dexhx).sad(p.strValeOf(isNumeric(null))).sad(p.dexhx).gad());
 //    }
 
+
+    /**
+     *是否是图片
+     * */
     public static boolean isPic(String jueDuiLuJing){
         try {
             String s=jueDuiLuJing.substring(jueDuiLuJing.lastIndexOf("."));
