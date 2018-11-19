@@ -1,31 +1,34 @@
 package hanhan;
+//import com.alibaba.fastjson.JSON;
+//import com.alibaba.fastjson.serializer.SerializerFeature;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
 /**
- *首先set  currentPage---前端穿过来
+ *首先set  pageNum---前端穿过来
  *
- * 再set  perPageSize-----前端穿过来,不传默认写死10
+ * 再set  pageSize-----前端穿过来,不传默认写死10
  *
- * 再set   totalRecSize-------查数据库的总记录数,此时顺便把totalPageSize(总页数)也设置了
+ * 再set   total-------查数据库的总记录数,此时顺便把pages(总页数)也设置了
  *
  *
  *
  *
  * */
-public class Page {
+public class PageHan {
 
     //当前页
-    private Integer currentPage;//当前页的页面传过来
+    private Integer pageNum;//当前页的页面传过来
     //每页显示数
-    private Integer perPageSize=10;
+    private Integer pageSize=10;
 
     //总记录数
-    private Integer totalRecSize;
+    private long total;
 
     //总页数
-    private Integer totalPageSize;
+    private Integer pages;
 
     //装一些实体数据
     private List<?extends Object> objList;
@@ -37,14 +40,37 @@ public class Page {
     private Map<String,String>map;
 
 
+
+
+//    public static void main(String[]args){
+//            PageHan pageHan=new PageHan();
+//            pageHan.setPageNum(1);
+//            //设置每页显示数和总记录数,就会自动计算 pages 总页数
+//            pageHan.setPageSize(10).setTotal(1000);
+//            /**
+//                         {
+//                             "pageNum":1,
+//                             "pageSize":10,
+//                             "pages":100,
+//                             "total":1000
+//                         }
+//             * */
+//            System.out.println(JSON.toJSONString(pageHan, SerializerFeature.PrettyFormat));
+//
+//    }
+
+
+
+
+
     //设置当前页码
-    public void setCurrentPage(Integer currentPage) {
-        this.currentPage = currentPage;
+    public void setPageNum(Integer pageNum) {
+        this.pageNum = pageNum;
     }
 
     //得到当前页码
-    public Integer getCurrentPage() {
-        return currentPage;
+    public Integer getPageNum() {
+        return pageNum;
     }
 
 
@@ -52,22 +78,25 @@ public class Page {
 
 
     //设置每页显示数
-    public void setPerPageSize(Integer perPageSize) {
-        if(empty(perPageSize)||perPageSize==0){
-            perPageSize=10;
+    public PageHan setPageSize(Integer pageSize) {
+        if(empty(pageSize)||pageSize==0){
+            pageSize=10;
         }
-        this.perPageSize = perPageSize;
+        this.pageSize = pageSize;
+        //顺便把总页数也设置一下
+        this.setPages();
+        return this;
     }
 
 
 
 
     //得到每页显示数
-    public Integer getPerPageSize() {
-        if(empty(perPageSize)||perPageSize==0){
-            perPageSize=10;
+    public Integer getPageSize() {
+        if(empty(pageSize)||pageSize==0){
+            pageSize=10;
         }
-        return perPageSize;
+        return pageSize;
     }
 
 
@@ -78,37 +107,38 @@ public class Page {
 
 
     //得到总记录数
-    public Integer getTotalRecSize() {
+    public long getTotal() {
 
-        return totalRecSize;
+        return total;
 
     }
 
     //设置总记录数,顺便把总页数计算了
-    public void setTotalRecSize(Integer totalRecSize) {
-        this.totalRecSize = totalRecSize;
+    public PageHan setTotal(long total) {
+        this.total = total;
         //顺便把总页数也设置一下
-        this.setTotalPageSize();
+        this.setPages();
+        return this;
     }
 
 
     //设置总页数,不用设置了,在设置总记录数的时候已经设置了
-    public void setTotalPageSize(Integer totalPageSize) {
-        this.totalPageSize = totalPageSize;
+    public void setPages(Integer pages) {
+        this.pages = pages;
     }
 
     //得到总页数
-    public Integer getTotalPageSize() {
-        this.setTotalPageSize();
-        return this.totalPageSize;
+    public Integer getPages() {
+        this.setPages();
+        return this.pages;
     }
 
-    public void setTotalPageSize() {
-        this.perPageSize=this.getPerPageSize();
-        if(this.totalRecSize%this.perPageSize==0){
-            this.totalPageSize=this.totalRecSize/this.perPageSize;
+    public void setPages() {
+        this.pageSize=this.getPageSize();
+        if(this.total%this.pageSize==0){
+            this.pages=(int)(this.total/this.pageSize);
         }else{
-            this.totalPageSize=this.totalRecSize/this.perPageSize+1;
+            this.pages=(int)(this.total/this.pageSize+1);
         }
     }
 
