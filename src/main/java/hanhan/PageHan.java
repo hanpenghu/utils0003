@@ -2,9 +2,7 @@ package hanhan;
 //import com.alibaba.fastjson.JSON;
 //import com.alibaba.fastjson.serializer.SerializerFeature;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  *首先set  pageNum---前端穿过来
@@ -20,24 +18,24 @@ import java.util.Map;
 public class PageHan {
 
     //当前页
-    private Integer pageNum;//当前页的页面传过来
+    private Integer pageNum=null;//当前页的页面传过来
     //每页显示数
     private Integer pageSize=10;
 
     //总记录数
-    private long total;
+    private Long total=null;
 
     //总页数
-    private Integer pages;
+    private Integer pages=null;
 
     //装一些实体数据
-    private List<?extends Object> objList;
+    private List<?extends Object> objList=new LinkedList<>();
     //装数据对象
-    private List<String> strList;
+    private List<String> strList=new LinkedList<String>();
 
-    private List<Map<String,String>>mapStrList;
+    private List<Map<String,String>>mapStrList=new LinkedList<Map<String,String>>();
 
-    private Map<String,String>map;
+    private Map<String,String>map=new LinkedHashMap<String,String>();
 
 
 
