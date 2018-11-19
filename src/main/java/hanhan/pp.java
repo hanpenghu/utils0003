@@ -74,7 +74,7 @@ private static final org.slf4j.Logger log= org.slf4j.LoggerFactory.getLogger(pp.
 
     public static void logInfo(org.slf4j.Logger log,String logName,Object logObject){
         try {
-            log.info("@@@@@  {}: {}  @@@@@",logName, JSON.toJSONString(logObject));
+            log.info("@@@@@  {}: {}  @@@@@",logName, JSON.toJSONString(logObject,SerializerFeature.WriteDateUseDateFormat));
         } catch (Exception e0) {
             try {
                 log.info("@@@@@  {}: {}  @@@@@",logName, logObject.toString());

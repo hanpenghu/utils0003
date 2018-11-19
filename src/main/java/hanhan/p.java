@@ -5900,6 +5900,69 @@ public static Object StringTypeSpace2Null(Object o) throws IllegalAccessExceptio
         }
     }
 
+
+
+    /**
+     *收集异常堆栈信息
+     * */
+    public static String getStackTrace(Throwable throwable)
+    {
+        try {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+
+            try
+            {
+                throwable.printStackTrace(pw);
+                return sw.toString();
+            } finally
+            {
+                pw.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
+    /**
+     *用|连接字符串, 开始没有|,结束有|
+     * */
+    public static String strJoinWithI(List<String>strs){
+        String str="";
+        try {
+            if(p.notEmpty(strs)){
+                for(String s:strs){
+                    s=(s==null?"":s);
+                    str=(str+s+"|");
+                }
+            }
+        } catch (Exception e) {e.printStackTrace();}finally{}
+        return str;
+    }
+    /*public static void main(String[]args){
+            List<String>list=new ArrayList<>();
+            list.add("1");
+            list.add(null);
+            list.add("3");
+            list.add("4");
+        String ss = strJoinWithI(list);
+        //1||3|4|
+        p.p(ss);
+        List<String> strings = Arrays.asList(ss.split("\\|"));
+        //[1, , 3, 4] 说明分隔符|起作用, 要设计在每次字符串最后
+        p.p(strings);
+        //  []  为空集合
+        p.p(Arrays.asList("|".split("\\|")));
+        //为[] 空集合
+        p.p(Arrays.asList("".split("\\|")));
+
+    }*/
+
+
+//    public static void main(String[]args){
+//        p.p(Arrays.asList(new String[]{"",null,""}));
+//    }
 ////////////////////////////////////////////////////////////////////////////////////////////////
 }
 
